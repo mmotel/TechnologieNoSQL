@@ -3,8 +3,9 @@
 ##Poprawienie pliku csv
 
 Wykonujemy dwa replace-y:
-1. \n -> spacja
-2. \"spacja\" -> \"\n\" 
+
+1. `\n -> spacja`
+2. `\"spacja\" -> \"\n\"`
 
 Po naprawieniu pliku csv robimy import.
 
