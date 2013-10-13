@@ -10,7 +10,9 @@ Po naprawieniu pliku csv robimy import.
 
 ##Import
 
-`mongoimport -d test -c train --type csv --headerline --file path_to_file`
+Moja ścieżka do pliku: `H:\nosql\Train.csv`
+
+`mongoimport -d test -c train --type csv --headerline --file H:\nosql\Train.csv`
 
 ###Wynik
 
