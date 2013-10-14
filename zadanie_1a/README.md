@@ -17,9 +17,9 @@ plik ma o jedną linię za dużo. Co w niej jest?
 
 Pusta linia, ostał się jeden znak nowej linii za dużo, należy go usunąć. Można to zrobić na wiele sposobów, na przykład tak:
 	
-`head -n 6034196 Train_prepared.csv > Train.csv`
+	head -n 6034196 Train_prepared.csv > Train.csv
 
-Ponownie sprawdzamy ile linii ma plik (`Train.csv`):
+Ponownie sprawdzamy ile linii ma plik `Train.csv`:
 
 	wc -l Train.csv
 	6043196 Train.csv
