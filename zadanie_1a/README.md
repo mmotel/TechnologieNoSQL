@@ -46,13 +46,15 @@ W czasie importu mierzymy czas za pomocą polecenia `time` poprzedzając im wła
 
 	real	9m11.278s
 	user	2m53.240s
-	sys	0m13.764s
+	sys 	0m13.764s
 
 ###Sprawdzamy
 
 	mongo
-	use train
-	train.train.count()
-	...
-
+	MongoDB shell version: 2.4.6
+	connecting to: test
+	> use train
+	switched to db train
+	> db.train.count()
+	6034195
 
