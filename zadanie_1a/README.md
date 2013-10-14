@@ -2,7 +2,8 @@
 
 ##Poprawienie pliku csv
 
-`cat Train.csv | tr -s "\n" | tr -d "\n" | tr "\r" "\n" > Train_prepared.csv`
+	cat Train.csv | tr -s "\n" | tr -d "\n" | tr "\r" "\n" > Train_prepared.csv
+	head -n 6034196 Train_prepared.csv > Train.csv
 
 Po naprawieniu pliku csv robimy import.
 
