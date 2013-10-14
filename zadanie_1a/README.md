@@ -1,17 +1,42 @@
 #Zadanie 1a
 
-##Poprawienie pliku csv
+##Poprawienie pliku `.csv`
 
-	cat Train.csv | tr -s "\n" | tr -d "\n" | tr "\r" "\n" > Train_prepared.csv
-	head -n 6034196 Train_prepared.csv > Train.csv
+Plik `Train.csv` zawiera znaki nowej linii (`\n`) w polach (pomiędzy `" "`). Należy to naprawić wykonując następujacą transformację:
 
-Po naprawieniu pliku csv robimy import.
+`cat Train.csv | tr -s "\n" | tr -d "\n" | tr "\r" "\n" > Train_prepared.csv`
+
+Plik powinien zawierać `6034196` linii. Jak można sprawdzić wykonująć:
+
+	wc -l Train_prepared.csv
+	6034197
+
+plik ma o jedną linię za dużo. Co jest w nadmiarowej linii?
+
+	tail -n 1 Train_prepared.csv
+	...
+
+Pusto, ostał się jeden znak nowej linii za dużo, należy go usunąć. Można to zrobić na wiele sposobów, na przykład tak:
+	
+`head -n 6034196 Train_prepared.csv > Train.csv`
+
+Ponownie sprawdzamy ile linii ma plik (`Train.csv`):
+
+	wc -l Train.csv
+	6045196 ... Train.csv
+
+Dla pewności ponownie sprawdzamy ostatnią linię pliku:
+
+	tail -n 1 Train_prepared.csv
+	...
+
+Jest ok. Gdy mamy już poprawny plik `.csv` robimy import do bazy.
 
 ##Import
 
-Moja ścieżka do pliku: `H:\nosql\Train.csv`
+Moja ścieżka do pliku: `...`
 
-`mongoimport -d test -c train --type csv --headerline --file H:\nosql\Train.csv`
+`mongoimport -d test -c train --type csv --headerline --file ...`
 
 ###Wynik
 
