@@ -4,7 +4,7 @@
 
 Plik `Train.csv` zawiera znaki nowej linii (`\n`) w polach (pomiędzy `" "`). Należy to naprawić wykonując następujacą transformację:
 
-	cat Train.csv | tr "\n" " " | tr "\r" "\n" > Train_prepared.csv`
+	cat Train.csv | tr "\n" " " | tr "\r" "\n" > Train_prepared.csv
 
 Plik powinien zawierać `6034196` linii. Jak można sprawdzić wykonująć:
 
@@ -28,9 +28,9 @@ Jest ok. Gdy mamy już poprawny plik `.csv` robimy import do bazy.
 
 ##Import
 
-Moja ścieżka do pliku: `...`
+W czasie importu mierzymy czas za pomocą polecenia `time` poprzedzając im właściwe polecenie `mongoimport` ze wszystkimi parametrami.
 
-`mongoimport -d test -c train --type csv --headerline --file ...`
+	time mongoimport -d train -c train --type csv --headerline --file Train.csv
 
 ###Wynik
 
@@ -38,7 +38,9 @@ Moja ścieżka do pliku: `...`
 
 ###Sprawdzamy
 
-	db.train.count()
+	mongo
+	use train
+	train.train.count()
 	...
 
 
