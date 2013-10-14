@@ -34,7 +34,19 @@ W czasie importu mierzymy czas za pomocą polecenia `time` poprzedzając im wła
 
 ###Wynik
 
-`imported ...`
+	connected to: 127.0.0.1
+	Mon Oct 14 23:29:37.015 		Progress: 41930908/7253917399	0%
+	...
+	Mon Oct 14 23:38:44.773 		Progress: 7252389096/7253917399	99%
+	Mon Oct 14 23:38:44.773 			6032900	10968/second
+	Mon Oct 14 23:38:45.110 check 9 6034196
+	Mon Oct 14 23:38:45.338 imported 6034195 objects
+
+###Czasy
+
+	real	9m11.278s
+	user	2m53.240s
+	sys	0m13.764s
 
 ###Sprawdzamy
 
