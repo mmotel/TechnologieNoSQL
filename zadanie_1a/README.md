@@ -2,10 +2,7 @@
 
 ##Poprawienie pliku csv
 
-Wykonujemy dwa replace-y:
-
-1. `\n -> spacja`
-2. `\"spacja\" -> \"\n\"`
+`cat Train.csv | tr -s "\n" | tr -d "\n" | tr "\r" "\n" > Train_prepared.csv`
 
 Po naprawieniu pliku csv robimy import.
 
