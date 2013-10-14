@@ -4,7 +4,7 @@
 
 Plik `Train.csv` zawiera znaki nowej linii (`\n`) w polach (pomiędzy `" "`). Należy to naprawić wykonując następujacą transformację:
 
-`cat Train.csv | tr "\n" " " | tr "\r" "\n" > Train_prepared.csv`
+	cat Train.csv | tr "\n" " " | tr "\r" "\n" > Train_prepared.csv`
 
 Plik powinien zawierać `6034196` linii. Jak można sprawdzić wykonująć:
 
