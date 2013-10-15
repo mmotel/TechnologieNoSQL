@@ -2,7 +2,7 @@
 
 ##Poprawienie pliku `.csv`
 
-Plik `Train.csv` zawiera znaki nowej linii (`\n`) w polach (pomiędzy `" "`). Należy to naprawić wykonując następujacą transformację:
+Plik `Train.csv` zawiera znaki nowej linii (`\n`) w polach . Należy to naprawić wykonując następujacą transformację:
 
 	cat Train.csv | tr "\n" " " | tr "\r" "\n" > Train_prepared.csv
 
