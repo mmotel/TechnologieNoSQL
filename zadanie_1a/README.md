@@ -48,6 +48,8 @@ W czasie importu mierzymy czas za pomocą polecenia `time` poprzedzając im wła
 	user	2m53.240s
 	sys 	0m13.764s
 
+W ciągu `9m11.278s` do bazy zaimportowało się `6034195` obiektów. Co średnio daje `~16264` insertów do bazy na sekundę.
+
 ###Sprawdzamy
 
 	mongo
