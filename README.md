@@ -35,4 +35,8 @@ Przykładowy rekord `CSV` z pliku `Train.csv`:
 	<p>Rene</p>
 	","firefox"
 
-Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.json](). Wybrałem je losowo po zapisaniu rekordów z `Train.csv` w bazie `MongoDB`.
+Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.json](https://github.com/nosql/aggregations-2/blob/master/data/wbzyl/fb101.json). Wybrałem je losowo po zapisaniu rekordów z `Train.csv` w bazie `MongoDB`.
+
+###Rozwiązania
+
+ * [Zadanie 1a](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1a) 
