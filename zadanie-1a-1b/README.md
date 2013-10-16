@@ -1,4 +1,4 @@
-#Zadanie 1a
+#Zadania 1a i 1b
 
 ###Treść
 
@@ -6,6 +6,8 @@ Zadanie 1a polega na zaimportowaniu, do systemów baz danych uruchomionych na sw
 
  * `MongoDB`
  * `PostgreSQL` – opcjonalnie dla znających fanów `SQL`
+
+Zadanie 1b. Zliczyć liczbę zaimportowanych rekordów (Odpowiedź: `imported 6_034_195 objects`).
 
 ##Poprawienie pliku `.csv`
 
