@@ -7,5 +7,32 @@ Technologie noSQL - `laboratoria`
 * CouchDB `1.3.1 / 1.4.0`
 * Elasticsearch `0.90.5`
 
-###Instalacje
+##Instalacje
 * [MongoDB na Ubuntu](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
+
+##Zadanie 1
+
+Co to jest [Exploratory Data Analysis](http://en.wikipedia.org/wiki/Exploratory_Data_Analysis) (EDA)?
+
+![data cleaning](http://wbzyl.inf.ug.edu.pl/nosql/images/data-cleaning.png "data-cleaning")
+
+Na [Kaggle](https://www.kaggle.com/) znajdziemy dużo interesujących danych. W sierpniu 2013 Facebook ogłosił konkurs [Identify keywords and tags from millions of text questions](https://www.kaggle.com/c/facebook-recruiting-iii-keyword-extraction). Skorzystamy z danych udostępnionych na ten konkurs przez [Stack Exchange](http://stackexchange.com/):
+
+ * [`Train.zip` o rozmiarze `2.19 GB`](https://www.kaggle.com/c/facebook-recruiting-iii-keyword-extraction/download/Train.zip)
+
+Archiwum `Train.zip` zawiera plik `Train.csv` (`6.8 GB`). Każdy rekord zawiera cztery pola `"Id","Title","Body","Tags"`:
+
+ * `Id` – Unique identifier for each question
+ * `Title` – The question's title
+ * `Body` – The body of the question
+ * `Tags` – The tags associated with the question (all lowercase, should not contain tabs `'\t'` or ampersands `'&'`)
+
+Przykładowy rekord `CSV` z pliku `Train.csv`:
+
+	"2","How can I prevent firefox from closing when I press ctrl-w",
+	"<p>In my favorite editor […]</p>
+	
+	<p>Rene</p>
+	","firefox"
+
+Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.json](). Wybrałem je losowo po zapisaniu rekordów z `Train.csv` w bazie `MongoDB`.
