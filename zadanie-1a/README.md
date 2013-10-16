@@ -1,5 +1,7 @@
 #Zadanie 1a
 
+##Treść
+
 ##Poprawienie pliku `.csv`
 
 Plik `Train.csv` zawiera znaki nowej linii (`\n`) w polach . Należy to naprawić wykonując następujacą transformację:
@@ -28,7 +30,7 @@ Jest ok. Gdy mamy już poprawny plik `.csv` robimy import do bazy.
 
 ##Import
 
-W czasie importu mierzymy czas za pomocą polecenia `time` poprzedzając im właściwe polecenie `mongoimport` ze wszystkimi parametrami.
+Podczas importu mierzymy czas za pomocą polecenia `time` poprzedzając im właściwe polecenie `mongoimport` ze wszystkimi parametrami.
 
 	time mongoimport -d train -c train --type csv --headerline --file Train.csv
 
@@ -50,7 +52,7 @@ W czasie importu mierzymy czas za pomocą polecenia `time` poprzedzając im wła
 
 W ciągu `9m11.278s` do bazy zaimportowało się `6034195` obiektów. Co średnio daje `~16264` insertów do bazy na sekundę.
 
-###Sprawdzamy
+###Sprawdzenie
 
 	mongo
 	MongoDB shell version: 2.4.6
@@ -59,4 +61,6 @@ W ciągu `9m11.278s` do bazy zaimportowało się `6034195` obiektów. Co średni
 	switched to db train
 	> db.train.count()
 	6034195
+
+Dziękuję. Dobranoc.
 
