@@ -2,6 +2,11 @@
 
 ##Treść
 
+Zadanie 1a polega na zaimportowaniu, do systemów baz danych uruchomionych na swoim komputerze, danych z pliku `Train.csv`, bazy:
+
+ * MongoDB
+ * PostgreSQL – opcjonalnie dla znających fanów SQL
+
 ##Poprawienie pliku `.csv`
 
 Plik `Train.csv` zawiera znaki nowej linii (`\n`) w polach . Należy to naprawić wykonując następujacą transformację:
