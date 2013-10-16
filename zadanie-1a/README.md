@@ -1,6 +1,6 @@
 #Zadanie 1a
 
-##Treść
+###Treść
 
 Zadanie 1a polega na zaimportowaniu, do systemów baz danych uruchomionych na swoim komputerze, danych z pliku `Train.csv`, bazy:
 
