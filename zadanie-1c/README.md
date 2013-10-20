@@ -30,15 +30,18 @@ Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze 
 
 Otwieramy kolekcję `train`:
 
-	db.collection('train', function (err, coll) {
-		if(err){
-			db.close();
-			console.log(err); 
-		}
-		else{
-			//operacje na kolekcji
-		}
-	});
+	else{
+		...
+		db.collection('train', function (err, coll) {
+			if(err){
+				db.close();
+				console.log(err); 
+			}
+			else{
+				//operacje na kolekcji
+			}
+		});
+	}
 
 ###Iteracja po kolekcji
 
@@ -63,19 +66,52 @@ Iterujemy używając `kursora` oraz jego metody `each()`:
 
 Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu:
 
-	if(item.Tags.constructor === String){ 
-		...
+	else{
+		if(item.Tags.constructor === String){ 
+			...
+		}
 	}
 
 Następnie używamy metody `split()` aby rozdzielić ciag napisów do tablicy:
 
-	var tagsSplited = item.Tags.split(" ");
+	if(item.Tags.constructor === String){
+		var tagsSplited = item.Tags.split(" ");
+	}
 
 Na koniec dokonujemy aktualizacji obiektu w bazie:
 
-	coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
-		if(err) { console.log(err); }
-		else{
-			//aktualizacja się powiodła
-		}
-	});
+	if(item.Tags.constructor === String){
+		...
+		coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
+			if(err) { console.log(err); }
+			else{
+				//aktualizacja się powiodła
+			}
+		});
+	}
+
+Aby wszystkie akualizacje wykonały się poprawnie musimy poczekać na ich zakończenie. Policzymy ilość aktualizacji oraz ilość już wykonanych akutalizacji. Kiedy kolekcja będzie już pusta będziemy je porównywać aż będą takie same. W tym celu użyjemy dwóch zmiennych:
+
+	else{
+		var cursor = coll.find();
+		...
+		var updatesCount = 0;
+		var updatedCount = 0;
+		...
+	} 
+
+Zmienną `updatesCount` będziemy zwiększać kiedy warunek `item.Tags.constructor === String` będzie spełniony. Natomiast zmienną `updatedCount` gdy aktualizacja się powiedzie. Kod, który implementuje oczekiwanie na zakończenie akutalizacji:
+
+	else if(item === null){
+		var interval = setInterval( function(){
+			if(updatesCount !== updatedCount){
+				console.log("Czekam na wszystkie update-y...");
+			}
+			else{
+				clearInterval(interval);
+				db.close();
+				console.log("Update-y zakończone.");
+				console.log('MongoDB Rozłączone!');
+			}
+		}, 500);
+	}
