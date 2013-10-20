@@ -61,3 +61,21 @@ Iterujemy używając `kursora` oraz jego metody `each()`:
 
 ###Zamiana ciągu napisów na tablicę napisów
 
+Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu:
+
+	if(item.Tags.constructor === String){ 
+		...
+	}
+
+Następnie używamy metody `split()` aby rozdzielić ciag napisów do tablicy:
+
+	var tagsSplited = item.Tags.split(" ");
+
+Na koniec dokonujemy aktualizacji obiektu w bazie:
+
+	coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
+		if(err) { console.log(err); }
+		else{
+			//aktualizacja się powiodła
+		}
+	});
