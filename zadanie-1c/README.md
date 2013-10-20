@@ -140,7 +140,7 @@ Ilość elementów zwiększamy przy każdej iteracji metody `each()`:
 	cursor.each(function(err, item) {
 		...
 		else{
-			imtesCount++;
+			itemsCount++;
 			...
 		}
 
