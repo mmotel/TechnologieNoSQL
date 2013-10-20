@@ -47,20 +47,22 @@ Otwieramy kolekcję `train`:
 
 Iterujemy używając `kursora` oraz jego metody `each()`:
 
-	var cursor = coll.find();
+	else{
+		var cursor = coll.find();
 
-	cursor.each(function(err, item) {
-		if(err){
-			db.close();
-			console.log(err); 
-		}
-		else if(item === null){
-			//kolekcja jest już pusta
-		}
-		else{
-			//operacje na elementach kolekcji
-		}
-	});
+		cursor.each(function(err, item) {
+			if(err){
+				db.close();
+				console.log(err); 
+			}
+			else if(item === null){
+				//kolekcja jest już pusta
+			}
+			else{
+				//operacje na elementach kolekcji
+			}
+		});
+	}
 
 ###Zamiana ciągu napisów na tablicę napisów
 
@@ -72,7 +74,7 @@ Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu:
 		}
 	}
 
-Następnie używamy metody `split()` aby rozdzielić ciag napisów do tablicy:
+Następnie używamy metodę `split()` aby rozdzielić ciag napisów do tablicy:
 
 	if(item.Tags.constructor === String){
 		var tagsSplited = item.Tags.split(" ");
