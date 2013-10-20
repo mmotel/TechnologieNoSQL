@@ -102,7 +102,23 @@ Aby wszystkie akualizacje wykonały się poprawnie musimy poczekać na ich zako�
 		...
 	} 
 
-Zmienną `updatesCount` będziemy zwiększać kiedy warunek `item.Tags.constructor === String` będzie spełniony. Natomiast zmienną `updatedCount` gdy aktualizacja się powiedzie. Kod, który implementuje oczekiwanie na zakończenie akutalizacji:
+Zmienną `updatesCount` będziemy zwiększać kiedy warunek `item.Tags.constructor === String` będzie spełniony. 
+
+	if(item.Tags.constructor === String){
+		...
+		updatesCount++;
+	}
+
+Natomiast zmienną `updatedCount` gdy aktualizacja się powiedzie. 
+
+	coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
+		if(err) { console.log(err); }
+		else{
+			updatedCount++; //liczymy wykonane update-y
+		}
+	});
+
+Kod, który implementuje oczekiwanie na zakończenie akutalizacji:
 
 	else if(item === null){
 		var interval = setInterval( function(){
