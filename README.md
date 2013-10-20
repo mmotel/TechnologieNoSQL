@@ -40,3 +40,4 @@ Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.j
 ###Rozwiązania
 
  * [Zadanie 1a i 1b](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1a-1b) 
+ * [Zadanie 1c](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1c)
