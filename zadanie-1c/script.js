@@ -7,7 +7,7 @@ db.open(function (err) {
   else{
     console.log('MongoDB Połączono!');
 
-    db.collection('test5', function (err, coll) {
+    db.collection('train', function (err, coll) {
       if(err){
         db.close();
         console.log(err); 
@@ -27,8 +27,7 @@ db.open(function (err) {
             console.log(err); 
           }
           else if(item === null){
-
-              //czekamy aż mongo zakończy updaty
+              //czekamy aż mongo zakończy update-y
               var interval = setInterval( function(){
                 if(updatesCount !== updatedCount){
                   console.log("Czekam na wszystkie update-y...");
