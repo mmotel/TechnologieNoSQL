@@ -117,3 +117,90 @@ Zmienną `updatesCount` będziemy zwiększać kiedy warunek `item.Tags.construct
 			}
 		}, 500);
 	}
+
+###Zliczanie
+
+Podczas wykonywania zamiany zliczamy:
+ * ilość elementów
+ * ilość tagów
+ * ilość różnych tagów
+ * ilość aktualizacji (już zaimplementowane)
+
+ Zmienne których użyjemy:
+
+ 	else{
+		var cursor = coll.find();
+		var tagsCount = 0;
+		var itemsCount = 0;
+		var updatesCount = 0;
+		...
+		var tags = {};
+		var diffTags = 0;
+		...
+	}
+
+Ilość elementów zwiększamy przy każdej iteracji metody `each()`:
+
+	cursor.each(function(err, item) {
+		...
+		else{
+			imtesCount++;
+			...
+		}
+
+Ilość tagów po podziale ciągu napisów:
+
+	if(item.Tags.constructor === String){
+		...
+		var tagsSplited = item.Tags.split(" "); 
+		tagsCount += tagsSplited.length;
+		...
+	}
+
+Do zliczania ilości różnych tagów użyjemy `sztuczki` z polami obiektów w `JavaScript`:
+
+	if(item.Tags.constructor === String){
+		...
+		for(var i=0; i < tagsSplited.length; i++){
+			if(tags[tagsSplited[i]] === undefined){
+				tags[tagsSplited[i]] = true; //cokolwiek byle pole było defined
+				diffTags++;
+			}
+		}
+		...
+	}
+
+Pozostało nam wypisać wyniki. Zrobimy to zaraz po zakończeniu wszystkich aktualizacji:
+
+	else if(item === null){
+			var interval = setInterval( function(){
+				if(updatesCount !== updatedCount){
+					console.log("Czekam na wszystkie update-y...");
+				}
+				else{
+					clearInterval(interval);
+					db.close();
+					console.log("Update-y zakończone.");
+					console.log('MongoDB Rozłączone!');
+					console.log("ilość obiektów: " + itemsCount);
+					console.log("ilość updateów: " + updatesCount);
+					console.log("   ilość tagów: " + tagsCount);
+					console.log(" różnych tagów: " + diffTags);
+				}
+			}, 500);
+	}
+
+
+###Wynik
+
+Dla danych testowych (101 obiektów):
+
+	MongoDB Połączono!
+	Update-y zakończone.
+	MongoDB Rozłączone!
+	ilość obiektów: 101
+	ilość updateów: 101
+	   ilość tagów: 291
+	 różnych tagów: 223
+
+Dziękuję. Dobranoc.
