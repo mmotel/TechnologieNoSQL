@@ -120,15 +120,11 @@ Zmienną `updatesCount` będziemy zwiększać kiedy warunek `item.Tags.construct
 
 ###Zliczanie
 
-Podczas wykonywania zamiany zliczamy:
- * ilość elementów
- * ilość tagów
- * ilość różnych tagów
- * ilość aktualizacji (już zaimplementowane)
+Podczas wykonywania zamiany zliczamy: ilość elementów, ilość tagów, ilość różnych tagów, ilość aktualizacji (już zaimplementowane).
 
- Zmienne których użyjemy:
+Zmienne których użyjemy:
 
- 	else{
+	else{
 		var cursor = coll.find();
 		var tagsCount = 0;
 		var itemsCount = 0;
