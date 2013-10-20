@@ -5,9 +5,9 @@ var db = new mongo.Db('train', new mongo.Server('localhost', 27017), {safe: true
 db.open(function (err) {
   if(err){ console.log(err); }
   else{
-    console.log('MongoDB Connected!');
+    console.log('MongoDB Połączono!');
 
-    db.collection('test3', function (err, coll) {
+    db.collection('test5', function (err, coll) {
       if(err){
         db.close();
         console.log(err); 
@@ -27,27 +27,28 @@ db.open(function (err) {
             console.log(err); 
           }
           else if(item === null){
-            console.log("items count: " + itemsCount);
-            console.log("updts count: " + updatesCount);
-            console.log(" tags count: " + tagsCount);
-            console.log("  diff tags: " + diffTags);
+
               //czekamy aż mongo zakończy updaty
               var interval = setInterval( function(){
                 if(updatesCount !== updatedCount){
-                  console.log("czekam na zakończenie update-ów...");
+                  console.log("Czekam na wszystkie update-y...");
                 }
                 else{
                   clearInterval(interval);
-                  console.log("zakończono update-y.");
                   db.close();
-                  console.log('MongoDB Disconnected!');
+                  console.log("Update-y zakończone.");
+                  console.log('MongoDB Rozłączone!');
+                  console.log("ilość obiektów: " + itemsCount);
+                  console.log("ilość updateów: " + updatesCount);
+                  console.log("   ilość tagów: " + tagsCount);
+                  console.log(" różnych tagów: " + diffTags);
                 }
               }, 500);
           }
           else{
             itemsCount++;
             if(item.Tags.constructor === String){
-              console.log("id: " + item.Id + " tags: " + item.Tags );
+              // console.log("id: " + item.Id + " tags: " + item.Tags );
               //rozdzielamy string do tablicy
               var tagsSplited = item.Tags.split(" "); 
               tagsCount += tagsSplited.length;
