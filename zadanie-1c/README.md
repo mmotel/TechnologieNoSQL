@@ -175,8 +175,11 @@ Do zliczania ilości różnych tagów użyjemy `sztuczki` z polami obiektów w `
 		...
 		for(var i=0; i < tagsSplited.length; i++){
 			if(tags[tagsSplited[i]] === undefined){
-				tags[tagsSplited[i]] = true; //cokolwiek byle pole było defined
+				tags[tagsSplited[i]] = 1; //pierwsze wystąpienie tagu
 				diffTags++;
+			}
+			else{
+				tags[tagsSplited[i]]++;
 			}
 		}
 		...

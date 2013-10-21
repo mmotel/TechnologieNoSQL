@@ -7,7 +7,7 @@ db.open(function (err) {
   else{
     console.log('MongoDB Połączono!');
 
-    db.collection('train', function (err, coll) {
+    db.collection('test', function (err, coll) {
       if(err){
         db.close();
         console.log(err); 
@@ -54,8 +54,10 @@ db.open(function (err) {
               //zliczanie różnych tagów
               for(var i=0; i < tagsSplited.length; i++){
                 if(tags[tagsSplited[i]] === undefined){
-                  tags[tagsSplited[i]] = true; //cokolwiek byle pole było defined
+                  tags[tagsSplited[i]] = 1; //cokolwiek byle pole było defined
                   diffTags++;
+                }else{
+                  tags[tagsSplited[i]]++;
                 }
               }
               //zamiana stringa na tablicę w bazie
