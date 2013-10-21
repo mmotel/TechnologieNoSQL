@@ -42,7 +42,7 @@ db.open(function (err) {
                   console.log("   ilość tagów: " + tagsCount);
                   console.log(" różnych tagów: " + diffTags);
                 }
-              }, 10000);
+              }, 500);
           }
           else{
             itemsCount++;
