@@ -58,9 +58,9 @@ db.open(function (err) {
                   tags[tagsSplited[i]] = 1; //cokolwiek byle pole było defined
                   diffTags++;
                 }
-                // else{
-                //  tags[tagsSplited[i]]++;
-                // }
+                else{
+                 tags[tagsSplited[i]]++;
+                }
               }
               //zamiana stringa na tablicę w bazie
               coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
