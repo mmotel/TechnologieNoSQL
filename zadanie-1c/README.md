@@ -6,7 +6,7 @@ Zadanie 1c. (Zamiana formatu danych.) Zamienić string zawierający tagi na tabl
 
 ##Rozwiązanie
 
-Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze `Node.JS`, który korzysta ze sterownika [`The Node.JS MongoDB Driver`](http://mongodb.github.io/node-mongodb-native/).
+Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze [`Node.JS`](http://nodejs.org/) w wersji `0.10.21`, który korzysta ze sterownika [`The Node.JS MongoDB Driver`](http://mongodb.github.io/node-mongodb-native/) w wersji `1.3.19`.
 
 ###Szkielet rozwiązania
 
