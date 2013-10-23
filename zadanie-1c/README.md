@@ -69,15 +69,26 @@ Iterujemy używając `kursora` oraz jego metody `each()`:
 Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu:
 
 	else{
-		if(item.Tags.constructor === String){ 
-			...
-		}
+		if(item.Tags.constructor !== Array){  
+			var tagsSplited = []; //tablica na rozdzielone tagi
+
+			if(item.Tags.constructor === String){
+				//rozdzielamy string do tablicy
+			} else {
+				//pole innego typu
+			}
 	}
 
 Następnie używamy metodę `split()` aby rozdzielić ciag napisów do tablicy:
 
 	if(item.Tags.constructor === String){
 		var tagsSplited = item.Tags.split(" ");
+	}
+
+Lub dodajemy zawartość innego typu (np. liczbowego) do tablicy:
+
+	else {
+		tagsSplited.push(item.Tags);
 	}
 
 Na koniec dokonujemy aktualizacji obiektu w bazie:
