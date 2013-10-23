@@ -42,15 +42,20 @@ db.open(function (err) {
                   console.log("   ilość tagów: " + tagsCount);
                   console.log(" różnych tagów: " + diffTags);
                 }
-              }, 500);
+              }, 1000);
           }
           else{
             itemsCount++;
 
-            if(item.Tags.constructor === String){
-              // console.log("id: " + item.Id + " tags: " + item.Tags );
-              //rozdzielamy string do tablicy
-              var tagsSplited = item.Tags.split(" "); 
+            if(item.Tags.constructor !== Array){  
+              var tagsSplited = [];
+
+              if(item.Tags.constructor === String){
+                tagsSplited = item.Tags.split(" "); //rozdzielamy string do tablicy
+              } else {
+                tagsSplited.push(item.Tags);
+              }
+
               tagsCount += tagsSplited.length;
               //zliczanie różnych tagów
               for(var i=0; i < tagsSplited.length; i++){
