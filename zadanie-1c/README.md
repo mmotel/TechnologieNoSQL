@@ -1,4 +1,4 @@
-#Zadania 1c
+#Zadanie 1c
 
 ###Treść
 
