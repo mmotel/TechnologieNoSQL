@@ -55,3 +55,16 @@ Po przygotowaniu pliku `text8.txt` zgodnie ze `wskazówką` (patrz treść zadan
 	sys 	0m11.860s
 
 W ciągu `8m16.833s` zaimportowano `17 005 207` słów. Co średnio daje `~34 284` insertów do bazy na sekundę.
+
+###Sprawdzenie
+
+	mongo
+	MongoDB shell version: 2.4.7
+	connecting to: test
+	> use text
+	switched to db text
+	> db.text.count()
+	17005207
+	> 
+
+##Zliczanie słów
