@@ -30,3 +30,28 @@ Dopiero teraz wykonujemy te polecenia:
 ##Rozwiązanie
 
 Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze [`Node.JS`](http://nodejs.org/) w wersji `0.10.21`, który korzysta ze sterownika [`The Node.JS MongoDB Driver`](http://mongodb.github.io/node-mongodb-native/) w wersji `1.3.19`.
+
+##Import
+
+Po przygotowaniu pliku `text8.txt` zgodnie ze `wskazówką` (patrz treść zadania), importujemy słowa do bazy danych jednocześnie mierząc czas:
+
+	time mongoimport -d text -c text --type csv --fields 'word' --file text8.txt 
+
+###Wynik
+
+	connected to: 127.0.0.1
+	Sat Oct 26 12:49:19.367 		Progress: 635899/100000000	0%
+	Sat Oct 26 12:49:19.368 			105500	35166/second
+	...
+	Sat Oct 26 12:57:30.256 		Progress: 99601008/100000000	99%
+	Sat Oct 26 12:57:30.256 			16938600	34288/second
+	Sat Oct 26 12:57:31.945 check 9 17005207
+	Sat Oct 26 12:57:32.758 imported 17005207 objects
+
+###Czasy
+
+	real	8m16.833s
+	user	0m53.636s
+	sys 	0m11.860s
+
+W ciągu `8m16.833s` zaimportowano `17 005 207` słów. Co średnio daje `~34 284` insertów do bazy na sekundę.
