@@ -1,4 +1,4 @@
-#Zadania 1d
+#Zadanie 1d
 
 ###Treść
 
