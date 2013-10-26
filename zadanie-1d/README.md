@@ -65,6 +65,5 @@ W ciągu `8m16.833s` zaimportowano `17 005 207` słów. Co średnio daje `~34 28
 	switched to db text
 	> db.text.count()
 	17005207
-	> 
 
 ##Zliczanie słów
