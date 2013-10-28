@@ -12,62 +12,69 @@ Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze 
 
 Ładujemy `sterownik` i otwieramy połączenie z bazą `train`: 
 
-	var mongo = require('mongodb');
+```js
+var mongo = require('mongodb');
 
-	var db = new mongo.Db('train', new mongo.Server('localhost', 27017), {safe: true});
+var db = new mongo.Db('train', new mongo.Server('localhost', 27017), {safe: true});
 
-	db.open(function (err) {
-		if(err){ console.log(err); }
-		else{
-			console.log('MongoDB Połączono!');
+db.open(function (err) {
+  if(err){ console.log(err); }
+  else{
+    console.log('MongoDB Połączono!');
 
-			//operacje na bazie
+    //operacje na bazie
 
-			db.close();
-			console.log('MongoDB Rozłączone!');
-		}
-	});
+    db.close();
+    console.log('MongoDB Rozłączone!');
+  }
+});
+```
 
 Otwieramy kolekcję `train`:
 
-	else{
-		...
-		db.collection('train', function (err, coll) {
-			if(err){
-				db.close();
-				console.log(err); 
-			}
-			else{
-				//operacje na kolekcji
-			}
-		});
-	}
+```js
+else{
+  ...
+  db.collection('train', function (err, coll) {
+    if(err){
+      db.close();
+      console.log(err); 
+    }
+    else{
+      //operacje na kolekcji
+    }
+  });
+}
+```
 
 ###Iteracja po kolekcji
 
 Iterujemy używając `kursora` oraz jego metody `each()`:
 
-	else{
-		var cursor = coll.find();
+```js
+else{
+  var cursor = coll.find();
 
-		cursor.each(function(err, item) {
-			if(err){
-				db.close();
-				console.log(err); 
-			}
-			else if(item === null){
-				//kolekcja jest już pusta
-			}
-			else{
-				//operacje na elementach kolekcji
-			}
-		});
-	}
+  cursor.each(function(err, item) {
+    if(err){
+      db.close();
+      console.log(err); 
+    }
+    else if(item === null){
+      //kolekcja jest już pusta
+    }
+    else{
+      //operacje na elementach kolekcji
+    }
+  });
+}
+```
 
 ###Zamiana ciągu napisów na tablicę napisów
 
 Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu:
 
+```js
 	else{
 		if(item.Tags.constructor !== Array){  
 			var tagsSplited = []; //tablica na rozdzielone tagi
@@ -78,21 +85,27 @@ Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu:
 				//pole innego typu
 			}
 	}
+```
 
 Następnie używamy metodę `split()` aby rozdzielić ciag napisów do tablicy:
 
+```js
 	if(item.Tags.constructor === String){
 		var tagsSplited = item.Tags.split(" ");
 	}
+```
 
 Lub dodajemy zawartość innego typu (np. liczbowego) do tablicy:
 
+```js
 	else {
 		tagsSplited.push(item.Tags);
 	}
+```
 
 Na koniec dokonujemy aktualizacji obiektu w bazie:
 
+```js
 	if(item.Tags.constructor === String){
 		...
 		coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
@@ -102,35 +115,43 @@ Na koniec dokonujemy aktualizacji obiektu w bazie:
 			}
 		});
 	}
+```
 
 Aby wszystkie akualizacje wykonały się poprawnie musimy poczekać na ich zakończenie. Policzymy ilość aktualizacji oraz ilość już wykonanych akutalizacji. Kiedy kolekcja będzie już pusta będziemy je porównywać aż będą takie same. W tym celu użyjemy dwóch zmiennych:
 
+```js
 	else{
 		var cursor = coll.find();
 		...
 		var updatesCount = 0;
 		var updatedCount = 0;
 		...
-	} 
+	}
+```
 
 Zmienną `updatesCount` będziemy zwiększać kiedy warunek `item.Tags.constructor === String` będzie spełniony. 
 
+```js
 	if(item.Tags.constructor === String){
 		...
 		updatesCount++;
 	}
+```
 
 Natomiast zmienną `updatedCount` gdy aktualizacja się powiedzie. 
 
+```js
 	coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
 		if(err) { console.log(err); }
 		else{
 			updatedCount++; //liczymy wykonane update-y
 		}
 	});
+```
 
 Kod, który implementuje oczekiwanie na zakończenie akutalizacji:
 
+```js
 	else if(item === null){
 		var interval = setInterval( function(){
 			if(updatesCount !== updatedCount){
@@ -144,6 +165,7 @@ Kod, który implementuje oczekiwanie na zakończenie akutalizacji:
 			}
 		}, 500);
 	}
+```
 
 ###Zliczanie
 
@@ -151,6 +173,7 @@ Podczas wykonywania zamiany zliczamy: ilość elementów, ilość tagów, iloś�
 
 Zmienne których użyjemy:
 
+```js
 	else{
 		var cursor = coll.find();
 		var tagsCount = 0;
@@ -161,27 +184,34 @@ Zmienne których użyjemy:
 		var diffTags = 0;
 		...
 	}
+```
 
 Ilość elementów zwiększamy przy każdej iteracji metody `each()`:
 
+
+```js
 	cursor.each(function(err, item) {
 		...
 		else{
 			itemsCount++;
 			...
 		}
-
+```		
+		
 Ilość tagów po podziale ciągu napisów:
 
+```js
 	if(item.Tags.constructor === String){
 		...
 		var tagsSplited = item.Tags.split(" "); 
 		tagsCount += tagsSplited.length;
 		...
 	}
+```
 
 Do zliczania ilości różnych tagów użyjemy `sztuczki` z polami obiektów w `JavaScript`:
 
+```js
 	if(item.Tags.constructor === String){
 		...
 		for(var i=0; i < tagsSplited.length; i++){
@@ -195,9 +225,11 @@ Do zliczania ilości różnych tagów użyjemy `sztuczki` z polami obiektów w `
 		}
 		...
 	}
+```
 
 Pozostało nam wypisać wyniki. Zrobimy to zaraz po zakończeniu wszystkich aktualizacji:
 
+```js
 	else if(item === null){
 			var interval = setInterval( function(){
 				if(updatesCount !== updatedCount){
@@ -215,12 +247,13 @@ Pozostało nam wypisać wyniki. Zrobimy to zaraz po zakończeniu wszystkich aktu
 				}
 			}, 500);
 	}
-
+```
 
 ###Wynik
 
 Dla danych testowych (101 obiektów):
 
+```
 	MongoDB Połączono!
 	Update-y zakończone.
 	MongoDB Rozłączone!
@@ -228,5 +261,6 @@ Dla danych testowych (101 obiektów):
 	ilość updateów: 101
 	   ilość tagów: 291
 	 różnych tagów: 223
+```
 
 Dziękuję. Dobranoc.
