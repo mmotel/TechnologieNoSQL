@@ -75,96 +75,96 @@ else{
 Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu:
 
 ```js
-	else{
-		if(item.Tags.constructor !== Array){  
-			var tagsSplited = []; //tablica na rozdzielone tagi
+else{
+  if(item.Tags.constructor !== Array){  
+    var tagsSplited = []; //tablica na rozdzielone tagi
 
-			if(item.Tags.constructor === String){
-				//rozdzielamy string do tablicy
-			} else {
-				//pole innego typu
-			}
-	}
+    if(item.Tags.constructor === String){
+      //rozdzielamy string do tablicy
+    } else {
+      //pole innego typu
+    }
+}
 ```
 
 Następnie używamy metodę `split()` aby rozdzielić ciag napisów do tablicy:
 
 ```js
-	if(item.Tags.constructor === String){
-		var tagsSplited = item.Tags.split(" ");
-	}
+if(item.Tags.constructor === String){
+  var tagsSplited = item.Tags.split(" ");
+}
 ```
 
 Lub dodajemy zawartość innego typu (np. liczbowego) do tablicy:
 
 ```js
-	else {
-		tagsSplited.push(item.Tags);
-	}
+else {
+  tagsSplited.push(item.Tags);
+}
 ```
 
 Na koniec dokonujemy aktualizacji obiektu w bazie:
 
 ```js
-	if(item.Tags.constructor === String){
-		...
-		coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
-			if(err) { console.log(err); }
-			else{
-				//aktualizacja się powiodła
-			}
-		});
-	}
+if(item.Tags.constructor === String){
+  ...
+  coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
+    if(err) { console.log(err); }
+    else{
+      //aktualizacja się powiodła
+    }
+  });
+}
 ```
 
 Aby wszystkie akualizacje wykonały się poprawnie musimy poczekać na ich zakończenie. Policzymy ilość aktualizacji oraz ilość już wykonanych akutalizacji. Kiedy kolekcja będzie już pusta będziemy je porównywać aż będą takie same. W tym celu użyjemy dwóch zmiennych:
 
 ```js
-	else{
-		var cursor = coll.find();
-		...
-		var updatesCount = 0;
-		var updatedCount = 0;
-		...
-	}
+else{
+  var cursor = coll.find();
+  ...
+  var updatesCount = 0;
+  var updatedCount = 0;
+  ...
+}
 ```
 
 Zmienną `updatesCount` będziemy zwiększać kiedy warunek `item.Tags.constructor === String` będzie spełniony. 
 
 ```js
-	if(item.Tags.constructor === String){
-		...
-		updatesCount++;
-	}
+if(item.Tags.constructor === String){
+  ...
+  updatesCount++;
+}
 ```
 
 Natomiast zmienną `updatedCount` gdy aktualizacja się powiedzie. 
 
 ```js
-	coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
-		if(err) { console.log(err); }
-		else{
-			updatedCount++; //liczymy wykonane update-y
-		}
-	});
+coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
+  if(err) { console.log(err); }
+  else{
+    updatedCount++; //liczymy wykonane update-y
+  }
+});
 ```
 
 Kod, który implementuje oczekiwanie na zakończenie akutalizacji:
 
 ```js
-	else if(item === null){
-		var interval = setInterval( function(){
-			if(updatesCount !== updatedCount){
-				console.log("Czekam na wszystkie update-y...");
-			}
-			else{
-				clearInterval(interval);
-				db.close();
-				console.log("Update-y zakończone.");
-				console.log('MongoDB Rozłączone!');
-			}
-		}, 500);
-	}
+else if(item === null){
+  var interval = setInterval( function(){
+    if(updatesCount !== updatedCount){
+      console.log("Czekam na wszystkie update-y...");
+    }
+    else{
+      clearInterval(interval);
+      db.close();
+      console.log("Update-y zakończone.");
+      console.log('MongoDB Rozłączone!');
+    }
+  }, 500);
+}
 ```
 
 ###Zliczanie
@@ -174,79 +174,79 @@ Podczas wykonywania zamiany zliczamy: ilość elementów, ilość tagów, iloś�
 Zmienne których użyjemy:
 
 ```js
-	else{
-		var cursor = coll.find();
-		var tagsCount = 0;
-		var itemsCount = 0;
-		var updatesCount = 0;
-		...
-		var tags = {};
-		var diffTags = 0;
-		...
-	}
+else{
+  var cursor = coll.find();
+  var tagsCount = 0;
+  var itemsCount = 0;
+  var updatesCount = 0;
+  ...
+  var tags = {};
+  var diffTags = 0;
+  ...
+}
 ```
 
 Ilość elementów zwiększamy przy każdej iteracji metody `each()`:
 
 
 ```js
-	cursor.each(function(err, item) {
-		...
-		else{
-			itemsCount++;
-			...
-		}
-```		
-		
+cursor.each(function(err, item) {
+  ...
+  else{
+    itemsCount++;
+    ...
+  }
+```   
+    
 Ilość tagów po podziale ciągu napisów:
 
 ```js
-	if(item.Tags.constructor === String){
-		...
-		var tagsSplited = item.Tags.split(" "); 
-		tagsCount += tagsSplited.length;
-		...
-	}
+if(item.Tags.constructor === String){
+  ...
+  var tagsSplited = item.Tags.split(" "); 
+  tagsCount += tagsSplited.length;
+  ...
+}
 ```
 
 Do zliczania ilości różnych tagów użyjemy `sztuczki` z polami obiektów w `JavaScript`:
 
 ```js
-	if(item.Tags.constructor === String){
-		...
-		for(var i=0; i < tagsSplited.length; i++){
-			if(tags[tagsSplited[i]] === undefined){
-				tags[tagsSplited[i]] = 1; //pierwsze wystąpienie tagu
-				diffTags++;
-			}
-			else{
-				tags[tagsSplited[i]]++;
-			}
-		}
-		...
-	}
+if(item.Tags.constructor === String){
+  ...
+  for(var i=0; i < tagsSplited.length; i++){
+    if(tags[tagsSplited[i]] === undefined){
+      tags[tagsSplited[i]] = 1; //pierwsze wystąpienie tagu
+      diffTags++;
+    }
+    else{
+      tags[tagsSplited[i]]++;
+    }
+  }
+  ...
+}
 ```
 
 Pozostało nam wypisać wyniki. Zrobimy to zaraz po zakończeniu wszystkich aktualizacji:
 
 ```js
-	else if(item === null){
-			var interval = setInterval( function(){
-				if(updatesCount !== updatedCount){
-					console.log("Czekam na wszystkie update-y...");
-				}
-				else{
-					clearInterval(interval);
-					db.close();
-					console.log("Update-y zakończone.");
-					console.log('MongoDB Rozłączone!');
-					console.log("ilość obiektów: " + itemsCount);
-					console.log("ilość updateów: " + updatesCount);
-					console.log("   ilość tagów: " + tagsCount);
-					console.log(" różnych tagów: " + diffTags);
-				}
-			}, 500);
-	}
+else if(item === null){
+    var interval = setInterval( function(){
+      if(updatesCount !== updatedCount){
+        console.log("Czekam na wszystkie update-y...");
+      }
+      else{
+        clearInterval(interval);
+        db.close();
+        console.log("Update-y zakończone.");
+        console.log('MongoDB Rozłączone!');
+        console.log("ilość obiektów: " + itemsCount);
+        console.log("ilość updateów: " + updatesCount);
+        console.log("   ilość tagów: " + tagsCount);
+        console.log(" różnych tagów: " + diffTags);
+      }
+    }, 500);
+}
 ```
 
 ###Wynik
@@ -254,13 +254,13 @@ Pozostało nam wypisać wyniki. Zrobimy to zaraz po zakończeniu wszystkich aktu
 Dla danych testowych (101 obiektów):
 
 ```
-	MongoDB Połączono!
-	Update-y zakończone.
-	MongoDB Rozłączone!
-	ilość obiektów: 101
-	ilość updateów: 101
-	   ilość tagów: 291
-	 różnych tagów: 223
+MongoDB Połączono!
+Update-y zakończone.
+MongoDB Rozłączone!
+ilość obiektów: 101
+ilość updateów: 101
+   ilość tagów: 291
+ różnych tagów: 223
 ```
 
 Dziękuję. Dobranoc.
