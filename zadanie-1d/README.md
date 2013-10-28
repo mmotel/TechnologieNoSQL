@@ -4,7 +4,9 @@
 
 Zadanie 1d. Ściągnąć plik `text8.zip` ze strony [Matt Mahoney](http://mattmahoney.net/dc/textdata.html) (po rozpakowaniu 100MB):
 
-	wget http://mattmahoney.net/dc/text8.zip -O text8.gz
+```sh
+wget http://mattmahoney.net/dc/text8.zip -O text8.gz
+```
 
 Zapisać wszystkie słowa w bazie MongoDB. Następnie zliczyć liczbę słów oraz liczbę różnych słów w tym pliku. Ile procent całego pliku stanowi:
 
@@ -13,19 +15,22 @@ Zapisać wszystkie słowa w bazie MongoDB. Następnie zliczyć liczbę słów or
 
 Wskazówka: Zaczynamy od prostego `EDA`. Sprawdzamy, czy plik `text8` zawiera wyłącznie znaki alfanumeryczne i białe:
 
-	tr --delete '[:alnum:][:blank:]' < text8 > deleted.txt
-	ls -l deleted.txt
-	  -rw-rw-r--. 1 wbzyl wbzyl 0 10-16 12:58 deleted.txt # rozmiar 0 -> OK
-	rm deleted.txt
+```sh
+tr --delete '[:alnum:][:blank:]' < text8 > deleted.txt
+ls -l deleted.txt
+  -rw-rw-r--. 1 wbzyl wbzyl 0 10-16 12:58 deleted.txt # rozmiar 0 -> OK
+rm deleted.txt
+```
 
 Dopiero teraz wykonujemy te polecenia:
 
-	wc text8
-	  0         17005207 100000000 text8
-	tr --squeeze-repeats '[:blank:]' '\n' < text8 > text8.txt
-	wc text8.txt
-	  17005207  17005207 100000000 text8.txt  # powtórzone 17005207 -> OK
-
+```sh
+wc text8
+  0         17005207 100000000 text8
+tr --squeeze-repeats '[:blank:]' '\n' < text8 > text8.txt
+wc text8.txt
+  17005207  17005207 100000000 text8.txt  # powtórzone 17005207 -> OK
+```
 
 ##Rozwiązanie
 
@@ -35,35 +40,43 @@ Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze 
 
 Po przygotowaniu pliku `text8.txt` zgodnie ze `wskazówką` (patrz treść zadania), importujemy słowa do bazy danych jednocześnie mierząc czas:
 
-	time mongoimport -d text -c text --type csv --fields 'word' --file text8.txt 
+```sh
+time mongoimport -d text -c text --type csv --fields 'word' --file text8.txt 
+```
 
 ###Wynik
 
-	connected to: 127.0.0.1
-	Sat Oct 26 12:49:19.367 		Progress: 635899/100000000	0%
-	Sat Oct 26 12:49:19.368 			105500	35166/second
-	...
-	Sat Oct 26 12:57:30.256 		Progress: 99601008/100000000	99%
-	Sat Oct 26 12:57:30.256 			16938600	34288/second
-	Sat Oct 26 12:57:31.945 check 9 17005207
-	Sat Oct 26 12:57:32.758 imported 17005207 objects
+```
+connected to: 127.0.0.1
+Sat Oct 26 12:49:19.367 		Progress: 635899/100000000	0%
+Sat Oct 26 12:49:19.368 			105500	35166/second
+...
+Sat Oct 26 12:57:30.256 		Progress: 99601008/100000000	99%
+Sat Oct 26 12:57:30.256 			16938600	34288/second
+Sat Oct 26 12:57:31.945 check 9 17005207
+Sat Oct 26 12:57:32.758 imported 17005207 objects
+```
 
 ###Czasy
 
-	real	8m16.833s
-	user	0m53.636s
-	sys 	0m11.860s
+```
+real	8m16.833s
+user	0m53.636s
+sys 	0m11.860s
+```
 
 W ciągu `8m16.833s` zaimportowano `17 005 207` słów. Co średnio daje `~34 284` insertów do bazy na sekundę.
 
 ###Sprawdzenie
 
-	mongo
-	MongoDB shell version: 2.4.7
-	connecting to: test
-	> use text
-	switched to db text
-	> db.text.count()
-	17005207
+```js
+mongo
+MongoDB shell version: 2.4.7
+connecting to: test
+> use text
+switched to db text
+> db.text.count()
+17005207
+```
 
 ##Zliczanie słów
