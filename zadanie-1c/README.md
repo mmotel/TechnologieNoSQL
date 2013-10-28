@@ -231,21 +231,21 @@ Pozostało nam wypisać wyniki. Zrobimy to zaraz po zakończeniu wszystkich aktu
 
 ```js
 else if(item === null){
-    var interval = setInterval( function(){
-      if(updatesCount !== updatedCount){
-        console.log("Czekam na wszystkie update-y...");
-      }
-      else{
-        clearInterval(interval);
-        db.close();
-        console.log("Update-y zakończone.");
-        console.log('MongoDB Rozłączone!');
-        console.log("ilość obiektów: " + itemsCount);
-        console.log("ilość updateów: " + updatesCount);
-        console.log("   ilość tagów: " + tagsCount);
-        console.log(" różnych tagów: " + diffTags);
-      }
-    }, 500);
+  var interval = setInterval( function(){
+    if(updatesCount !== updatedCount){
+      console.log("Czekam na wszystkie update-y...");
+    }
+    else{
+      clearInterval(interval);
+      db.close();
+      console.log("Update-y zakończone.");
+      console.log('MongoDB Rozłączone!');
+      console.log("ilość obiektów: " + itemsCount);
+      console.log("ilość updateów: " + updatesCount);
+      console.log("   ilość tagów: " + tagsCount);
+      console.log(" różnych tagów: " + diffTags);
+    }
+  }, 500);
 }
 ```
 
