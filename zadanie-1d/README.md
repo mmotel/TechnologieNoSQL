@@ -245,3 +245,8 @@ real  0m16.109s
 user  0m0.112s
 sys   0m0.008s
 ```
+##Wyniki z MongoDB Management Service
+
+![mms-results](1d-counting-words.png)
+
+Dziękuję. Dobranoc.
