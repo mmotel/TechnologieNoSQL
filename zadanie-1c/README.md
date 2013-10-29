@@ -4,263 +4,77 @@
 
 Zadanie 1c. (Zamiana formatu danych.) Zamienić string zawierający tagi na tablicę napisów z tagami następnie zliczyć wszystkie tagi i wszystkie różne tagi. Napisać program, który to zrobi korzystając z jednego ze sterowników. Lista sterowników jest na stronie [MongoDB Ecosystem](http://docs.mongodb.org/ecosystem/).
 
-##Rozwiązanie
+##Rozwiązanie `powłoka Mongo`
+
+Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na powłoce `Mongo`.
+
+##Rozwiązanie `Node.JS`
 
 Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze [`Node.JS`](http://nodejs.org/) w wersji `0.10.21`, który korzysta ze sterownika [`The Node.JS MongoDB Driver`](http://mongodb.github.io/node-mongodb-native/) w wersji `1.3.19`.
 
-###Szkielet rozwiązania
 
-Ładujemy `sterownik` i otwieramy połączenie z bazą `train`: 
+##Zamiana ciągu napisów na tablicę napisów
+
+Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu kolekcji `train`. Następnie używamy metodę `split()` aby rozdzielić ciag napisów do tablicy lub dodajemy zawartość innego typu (np. liczbowego) do tablicy.
 
 ```js
-var mongo = require('mongodb');
+if(item.Tags.constructor !== Array){  
+  var tagsSplited = []; //tablica na rozdzielone tagi
 
-var db = new mongo.Db('train', new mongo.Server('localhost', 27017), {safe: true});
-
-db.open(function (err) {
-  if(err){ console.log(err); }
-  else{
-    console.log('MongoDB Połączono!');
-
-    //operacje na bazie
-
-    db.close();
-    console.log('MongoDB Rozłączone!');
+  if(item.Tags.constructor === String){
+    var tagsSplited = item.Tags.split(" ");
+  } else {
+    tagsSplited.push(item.Tags);
   }
-});
 ```
 
-Otwieramy kolekcję `train`:
+##Wyniki
 
-```js
-else{
-  ...
-  db.collection('train', function (err, coll) {
-    if(err){
-      db.close();
-      console.log(err); 
-    }
-    else{
-      //operacje na kolekcji
-    }
-  });
+###mongoScript.js
+
+```sh
+time mongo train mongoScript.js 
+```
+
+```sh
+MongoDB shell version: 2.4.7
+connecting to: train
+     obiektów:6034195
+ aktualizacji:6034195
+        tagów:17409994
+różnych tagów:42048
+```
+
+####Sprawdzenie
+
+Element po wykonaniu aktualizacji:
+
+```json
+{
+  "_id" : ObjectId("526e9eea0d0994b3ea766bc5"),
+  "Id" : 1,
+  "Title" : "How to check if an uploaded file is an image without mime type?",
+  "Body" : "<p>I'd like to check if an uploaded file is an image file (e.g png, jpg, jpeg, gif, bmp) or another file. The
+   problem is that I'm using Uploadify to upload the files, which changes the mime type and gives a 'text/octal' or 
+   something as the mime type, no matter which file type you upload.</p>  <p>Is there a way to check if the uploaded file 
+   is an image apart from checking the file extension using PHP?</p> ",
+  "Tags" : [
+    "php",
+    "image-processing",
+    "file-upload",
+    "upload",
+    "mime-types"
+  ]
 }
 ```
+####Czasy
 
-###Iteracja po kolekcji
-
-Iterujemy używając `kursora` oraz jego metody `each()`:
-
-```js
-else{
-  var cursor = coll.find();
-
-  cursor.each(function(err, item) {
-    if(err){
-      db.close();
-      console.log(err); 
-    }
-    else if(item === null){
-      //kolekcja jest już pusta
-    }
-    else{
-      //operacje na elementach kolekcji
-    }
-  });
-}
+```sh
+real  18m46.243s
+user  11m35.016s
+sys   0m14.732s
 ```
 
-###Zamiana ciągu napisów na tablicę napisów
-
-Sprawdzamy jakiego typu jest pole `Tags` każdego elemenu:
-
-```js
-else{
-  if(item.Tags.constructor !== Array){  
-    var tagsSplited = []; //tablica na rozdzielone tagi
-
-    if(item.Tags.constructor === String){
-      //rozdzielamy string do tablicy
-    } else {
-      //pole innego typu
-    }
-}
-```
-
-Następnie używamy metodę `split()` aby rozdzielić ciag napisów do tablicy:
-
-```js
-if(item.Tags.constructor === String){
-  var tagsSplited = item.Tags.split(" ");
-}
-```
-
-Lub dodajemy zawartość innego typu (np. liczbowego) do tablicy:
-
-```js
-else {
-  tagsSplited.push(item.Tags);
-}
-```
-
-Na koniec dokonujemy aktualizacji obiektu w bazie:
-
-```js
-if(item.Tags.constructor === String){
-  ...
-  coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
-    if(err) { console.log(err); }
-    else{
-      //aktualizacja się powiodła
-    }
-  });
-}
-```
-
-Aby wszystkie akualizacje wykonały się poprawnie musimy poczekać na ich zakończenie. Policzymy ilość aktualizacji oraz ilość już wykonanych akutalizacji. Kiedy kolekcja będzie już pusta będziemy je porównywać aż będą takie same. W tym celu użyjemy dwóch zmiennych:
-
-```js
-else{
-  var cursor = coll.find();
-  ...
-  var updatesCount = 0;
-  var updatedCount = 0;
-  ...
-}
-```
-
-Zmienną `updatesCount` będziemy zwiększać kiedy warunek `item.Tags.constructor === String` będzie spełniony. 
-
-```js
-if(item.Tags.constructor === String){
-  ...
-  updatesCount++;
-}
-```
-
-Natomiast zmienną `updatedCount` gdy aktualizacja się powiedzie. 
-
-```js
-coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
-  if(err) { console.log(err); }
-  else{
-    updatedCount++; //liczymy wykonane update-y
-  }
-});
-```
-
-Kod, który implementuje oczekiwanie na zakończenie akutalizacji:
-
-```js
-else if(item === null){
-  var interval = setInterval( function(){
-    if(updatesCount !== updatedCount){
-      console.log("Czekam na wszystkie update-y...");
-    }
-    else{
-      clearInterval(interval);
-      db.close();
-      console.log("Update-y zakończone.");
-      console.log('MongoDB Rozłączone!');
-    }
-  }, 500);
-}
-```
-
-###Zliczanie
-
-Podczas wykonywania zamiany zliczamy: ilość elementów, ilość tagów, ilość różnych tagów, ilość aktualizacji (już zaimplementowane).
-
-Zmienne których użyjemy:
-
-```js
-else{
-  var cursor = coll.find();
-  var tagsCount = 0;
-  var itemsCount = 0;
-  var updatesCount = 0;
-  ...
-  var tags = {};
-  var diffTags = 0;
-  ...
-}
-```
-
-Ilość elementów zwiększamy przy każdej iteracji metody `each()`:
-
-
-```js
-cursor.each(function(err, item) {
-  ...
-  else{
-    itemsCount++;
-    ...
-  }
-```   
-    
-Ilość tagów po podziale ciągu napisów:
-
-```js
-if(item.Tags.constructor === String){
-  ...
-  var tagsSplited = item.Tags.split(" "); 
-  tagsCount += tagsSplited.length;
-  ...
-}
-```
-
-Do zliczania ilości różnych tagów użyjemy `sztuczki` z polami obiektów w `JavaScript`:
-
-```js
-if(item.Tags.constructor === String){
-  ...
-  for(var i=0; i < tagsSplited.length; i++){
-    if(tags[tagsSplited[i]] === undefined){
-      tags[tagsSplited[i]] = 1; //pierwsze wystąpienie tagu
-      diffTags++;
-    }
-    else{
-      tags[tagsSplited[i]]++;
-    }
-  }
-  ...
-}
-```
-
-Pozostało nam wypisać wyniki. Zrobimy to zaraz po zakończeniu wszystkich aktualizacji:
-
-```js
-else if(item === null){
-  var interval = setInterval( function(){
-    if(updatesCount !== updatedCount){
-      console.log("Czekam na wszystkie update-y...");
-    }
-    else{
-      clearInterval(interval);
-      db.close();
-      console.log("Update-y zakończone.");
-      console.log('MongoDB Rozłączone!');
-      console.log("ilość obiektów: " + itemsCount);
-      console.log("ilość updateów: " + updatesCount);
-      console.log("   ilość tagów: " + tagsCount);
-      console.log(" różnych tagów: " + diffTags);
-    }
-  }, 500);
-}
-```
-
-###Wynik
-
-Dla danych testowych (101 obiektów):
-
-```
-MongoDB Połączono!
-Update-y zakończone.
-MongoDB Rozłączone!
-ilość obiektów: 101
-ilość updateów: 101
-   ilość tagów: 291
- różnych tagów: 223
-```
+W ciągu `18m46.243s` wykonano `6 034 195` aktualizacji. Co średnio daje `~5 358` aktualizacji na sekundę.
 
 Dziękuję. Dobranoc.
