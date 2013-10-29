@@ -85,6 +85,24 @@ switched to db text
 
 ##Zliczanie słów
 
+####Różnych słów
+
+```sh
+MongoDB shell version: 2.4.7
+connecting to: text
+ słów: 253854
+ilość: 17005207
+część: 100%
+```
+
+Czasy:
+
+```sh
+real  0m18.030s
+user  0m1.340s
+sys   0m0.124s
+```
+
 ####1 słowo
 
 ```sh
@@ -146,5 +164,84 @@ Czasy:
 ```sh
 real  0m16.088s
 user  0m0.056s
+sys   0m0.008s
+```
+####100 słów
+
+```sh
+MongoDB shell version: 2.4.7
+connecting to: text
+```
+
+```json
+{
+  "result" : [
+    { "_id" : "the",    "count" : 1061396 },
+    { "_id" : "of",     "count" : 593677  },
+    { "_id" : "and",    "count" : 416629  },
+    { "_id" : "one",    "count" : 411764  },
+    { "_id" : "in",     "count" : 372201  },
+    ...
+    { "_id" : "history, "count" : 12623   },
+    { "_id" : "will",   "count" : 12560   },
+    { "_id" : "up",     "count" : 12445   },
+    { "_id" : "while",  "count" : 12363   },
+    { "_id" : "where",  "count" : 12347   }
+  ],
+  "ok" : 1
+}
+```
+
+```sh
+ słów: 100
+ilość: 7998978
+część: 47.03840417820259%
+```
+
+Czasy:
+
+```sh
+real  0m16.055s
+user  0m0.056s
+sys   0m0.016s
+```
+
+####1000 słów
+
+```sh
+MongoDB shell version: 2.4.7
+connecting to: text
+```
+
+```json
+{
+  "result" : [
+    { "_id" : "the",     "count" : 1061396 },
+    { "_id" : "of",      "count" : 593677  },
+    { "_id" : "and",     "count" : 416629  },
+    { "_id" : "one",     "count" : 411764  },
+    { "_id" : "in",      "count" : 372201  },
+    ...
+    { "_id" : "child",   "count" : 1789    },
+    { "_id" : "element", "count" : 1787    },
+    { "_id" : "appears", "count" : 1786    },
+    { "_id" : "takes",   "count" : 1783    },
+    { "_id" : "fall",    "count" : 1783    }
+  ],
+  "ok" : 1
+}
+```
+
+```sh
+ słów: 1000
+ilość: 11433354
+część: 67.23443001899359%
+```
+
+Czasy:
+
+```sh
+real  0m16.109s
+user  0m0.112s
 sys   0m0.008s
 ```
