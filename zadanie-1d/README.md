@@ -46,26 +46,26 @@ time mongoimport -d text -c text --type csv --fields 'word' --file text8.txt
 
 ###Wynik
 
-```
+```sh
 connected to: 127.0.0.1
-Sat Oct 26 12:49:19.367 		Progress: 635899/100000000	0%
-Sat Oct 26 12:49:19.368 			105500	35166/second
+Tue Oct 29 20:34:16.304 		Progress: 557689/100000000	0%
+Tue Oct 29 20:34:16.304 			92600	30866/second
 ...
-Sat Oct 26 12:57:30.256 		Progress: 99601008/100000000	99%
-Sat Oct 26 12:57:30.256 			16938600	34288/second
-Sat Oct 26 12:57:31.945 check 9 17005207
-Sat Oct 26 12:57:32.758 imported 17005207 objects
+Tue Oct 29 20:42:47.037 		Progress: 99670107/100000000	99%
+Tue Oct 29 20:42:47.037 			16950000	32976/second
+Tue Oct 29 20:42:48.382 check 9 17005207
+Tue Oct 29 20:42:49.272 imported 17005207 objects
 ```
 
 ###Czasy
 
-```
-real	8m16.833s
-user	0m53.636s
-sys 	0m11.860s
+```sh
+real	8m36.433s
+user	0m56.236s
+sys 	0m11.976s
 ```
 
-W ciągu `8m16.833s` zaimportowano `17 005 207` słów. Co średnio daje `~34 284` insertów do bazy na sekundę.
+W ciągu `8m16.833s` zaimportowano `17 005 207` słów. Co średnio daje `~32 955` insertów do bazy na sekundę.
 
 ###Sprawdzenie
 
