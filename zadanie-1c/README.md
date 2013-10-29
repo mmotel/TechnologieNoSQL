@@ -26,6 +26,7 @@ if(item.Tags.constructor !== Array){
   } else {
     tagsSplited.push(item.Tags);
   }
+}
 ```
 
 ##Wyniki
@@ -39,10 +40,10 @@ time mongo train mongoScript.js
 ```sh
 MongoDB shell version: 2.4.7
 connecting to: train
-     obiektów:6034195
- aktualizacji:6034195
-        tagów:17409994
-różnych tagów:42048
+     obiektów: 6034195
+ aktualizacji: 6034195
+        tagów: 17409994
+różnych tagów: 42048
 ```
 
 ####Sprawdzenie
