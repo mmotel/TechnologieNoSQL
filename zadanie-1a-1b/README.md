@@ -57,12 +57,12 @@ time mongoimport -d train -c train --type csv --headerline --file Train.csv
 
 ```
 connected to: 127.0.0.1
-Mon Oct 14 23:29:37.015 		Progress: 41930908/7253917399	0%
+Mon Oct 28 18:29:37.015 		Progress: 41930908/7253917399	0%
 ...
-Mon Oct 14 23:38:44.773 		Progress: 7252389096/7253917399	99%
-Mon Oct 14 23:38:44.773 			6032900	10968/second
-Mon Oct 14 23:38:45.110 check 9 6034196
-Mon Oct 14 23:38:45.338 imported 6034195 objects
+Mon Oct 28 18:38:44.773 		Progress: 7252389096/7253917399	99%
+Mon Oct 28 18:38:44.773 			6032900	10968/second
+Mon Oct 28 18:38:45.110 check 9 6034196
+Mon Oct 28 18:38:45.338 imported 6034195 objects
 ```
 
 ###Czasy
@@ -86,6 +86,10 @@ switched to db train
 > db.train.count()
 6034195
 ```
+
+###Wyniki z MongoDB Management Service
+
+![mms-results](1a-import-mms.png)
 
 Dziękuję. Dobranoc.
 
