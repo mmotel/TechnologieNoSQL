@@ -20,6 +20,7 @@ db.open(function (err) {
         var updatedCount = 0;
         var tags = {};
         var diffTags = 0;
+        // var tagsToUpdate = [];
 
         cursor.each(function(err, item) {
           if(err){
@@ -28,9 +29,19 @@ db.open(function (err) {
           }
           else if(item === null){
               //czekamy aż mongo zakończy update-y
+
+              // for(var i =0; i < tagsToUpdate.length; i++){
+              //   coll.update({Id: tagsToUpdate[i].Id}, {$set: {Tags: tagsToUpdate[i].Tags}}, function(err){
+              //     if(err) { console.log(err); }
+              //     else{
+              //       updatedCount++; //liczymy wykonane update-y
+              //     }
+              //   });
+              // }
+
               var interval = setInterval( function(){
                 if(updatesCount !== updatedCount){
-                  console.log("Czekam na wszystkie update-y...");
+                  console.log("Czekam na wszystkie update-y... \t " + updatedCount + "\\" + updatesCount);
                 }
                 else{
                   clearInterval(interval);
@@ -42,7 +53,7 @@ db.open(function (err) {
                   console.log("   ilość tagów: " + tagsCount);
                   console.log(" różnych tagów: " + diffTags);
                 }
-              }, 1000);
+              }, 30000);
           }
           else{
             itemsCount++;
@@ -74,10 +85,12 @@ db.open(function (err) {
                   updatedCount++; //liczymy wykonane update-y
                 }
               });
+              // tagsToUpdate.push({"Id": item.Id, "Tags": tagsSplited});
+              
               updatesCount++; //liczymy ilość update-ów do wykonania
             }
 
-            if(itemsCount % 1000 === 0){
+            if(itemsCount % 10000 === 0){
               console.log("obiektów: " + itemsCount + " aktualizacji: " + updatesCount +
               " tagów: " + tagsCount + " różnych tagów: " + diffTags);
             }
