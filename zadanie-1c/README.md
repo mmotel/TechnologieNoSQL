@@ -79,4 +79,8 @@ sys   0m14.732s
 
 W ciągu `18m46.243s` wykonano `6 034 195` aktualizacji. Co średnio daje `~5 358` aktualizacji na sekundę.
 
+####Wyniki z MongoDB Management Service
+
+![mms-results](1c-converting-tags-mms.png)
+
 Dziękuję. Dobranoc.
