@@ -55,10 +55,11 @@ Element po wykonaniu aktualizacji:
   "_id" : ObjectId("526e9eea0d0994b3ea766bc5"),
   "Id" : 1,
   "Title" : "How to check if an uploaded file is an image without mime type?",
-  "Body" : "<p>I'd like to check if an uploaded file is an image file (e.g png, jpg, jpeg, gif, bmp) or another file. The
-   problem is that I'm using Uploadify to upload the files, which changes the mime type and gives a 'text/octal' or 
-   something as the mime type, no matter which file type you upload.</p>  <p>Is there a way to check if the uploaded file 
-   is an image apart from checking the file extension using PHP?</p> ",
+  "Body" : "<p>I'd like to check if an uploaded file is an image file (e.g png, jpg, jpeg, gif, bmp) 
+  or another file. The   problem is that I'm using Uploadify to upload the files, which changes the 
+  mime type and gives a 'text/octal' or    something as the mime type, no matter which file type you 
+  upload.</p>  <p>Is there a way to check if the uploaded file    is an image apart from checking the 
+  file extension using PHP?</p> ",
   "Tags" : [
     "php",
     "image-processing",
