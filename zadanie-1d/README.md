@@ -79,4 +79,8 @@ switched to db text
 17005207
 ```
 
+###Wyniki z MongoDB Management Service
+
+![mms-results](1d-import-mms.png)
+
 ##Zliczanie słów
