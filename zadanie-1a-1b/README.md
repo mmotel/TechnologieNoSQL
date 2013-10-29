@@ -17,7 +17,7 @@ Plik `Train.csv` zawiera znaki nowej linii (`\n`) w polach . Należy to naprawi�
 cat Train.csv | tr "\n" " " | tr "\r" "\n" > Train_prepared.csv
 ```
 
-Plik powinien zawierać `6034196` linii. Jak można sprawdzić wykonująć:
+Plik powinien zawierać `6 034 196` linii. Jak można sprawdzić wykonująć:
 
 ```sh
 wc -l Train_prepared.csv
@@ -73,7 +73,7 @@ user	2m53.240s
 sys 	0m13.764s
 ```
 
-W ciągu `9m11.278s` do bazy zaimportowało się `6034195` obiektów. Co średnio daje `~16264` insertów do bazy na sekundę.
+W ciągu `9m11.278s` do bazy zaimportowało się `6 034 195` obiektów. Co średnio daje `~16 264` insertów do bazy na sekundę.
 
 ###Sprawdzenie
 
