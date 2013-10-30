@@ -85,6 +85,20 @@ switched to db text
 
 ##Zliczanie słów
 
+####Agregacja
+
+Do zliczania słów użyjemy prostej `agregacji`:
+
+```js
+coll.aggregate(
+  { $group: {_id: "$word", count: {$sum: 1}} },
+  { $sort: {count: -1} },
+  { $limit: 1 } //lub 10, 100, 1000
+)
+```
+
+Ustawiając lub wykomentowując `$limit` ustalamy ilość elementów, które otrzymamy w wyniku agregacji.
+
 ####Różnych słów
 
 ```sh
