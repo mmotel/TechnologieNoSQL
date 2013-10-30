@@ -59,6 +59,8 @@ Do przygotowania obiektów `geoJSON` użyjemy prostego skryptu powłoki `Mongo`,
 }
 ```
 
+`**` Skrypt usuwa niepoprawne obiekty geoJSON z kolekcji `ny`. Jest ich `16`.
+
 Uruchamiamy skrypt:
 
 ```sh
@@ -97,7 +99,7 @@ Wybrany punkt:
 }
 ```
 
-[Port Chester Harbor w Google Maps](http://goo.gl/maps/V2i7z)
+Port Chester Harbor w Google Maps: [link](http://goo.gl/maps/V2i7z)
 
 ```js
 var punkt = { 
