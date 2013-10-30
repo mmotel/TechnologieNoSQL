@@ -8,9 +8,9 @@ Dla zapisanych danych przygotować 6–9 różnych [`Geospatial Queries`](http:/
 
 ##Dane
 
-Do rozwiązania zadania użyłem danych ze strony [`U.S. Geological Survey`](http://geonames.usgs.gov/) z działu [`United States Board on Geographic Names`](http://geonames.usgs.gov/) pt. [`Domestic and Antarctic Names`](http://geonames.usgs.gov/domestic/download_data.htm) dla stanu `Nowy Jork`.
+Do rozwiązania zadania użyłem danych ze strony [`U.S. Geological Survey`](http://www.usgs.gov/) z działu [`United States Board on Geographic Names`](http://geonames.usgs.gov/) pt. [`Domestic and Antarctic Names`](http://geonames.usgs.gov/domestic/download_data.htm) dla stanu `Nowy Jork`.
 
-[Źródło danych](http://geonames.usgs.gov/docs/stategaz/NY_Features_20131020.zip)
+Źródło danych: [link](http://geonames.usgs.gov/docs/stategaz/NY_Features_20131020.zip)
 
 
 ##EDA
