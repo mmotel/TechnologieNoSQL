@@ -6,7 +6,9 @@ Zadanie 1e. Wyszukać w sieci dane zawierające obiekty [`GeoJSON`](http://geojs
 
 Dla zapisanych danych przygotować 6–9 różnych [`Geospatial Queries`](http://docs.mongodb.org/manual/applications/geospatial-indexes/) (co najmniej po jednym dla obiektów `Point`, `LineString` i `Polygon`). W przykładach należy użyć każdego z tych operatorów: `$geoWithin`, `$geoIntersect`, `$near`.
 
+##Dane
 
+Do rozwiązania zadania użyłem danych ze strony [`U.S. Geological Survey`](http://geonames.usgs.gov/) z działu [`United States Board on Geographic Names`](http://geonames.usgs.gov/) pt. [`Domestic and Antarctic Names`](http://geonames.usgs.gov/domestic/download_data.htm) dla stanu `Nowy Jork`.
 
 [Źródło danych](http://geonames.usgs.gov/docs/stategaz/NY_Features_20131020.zip)
 
