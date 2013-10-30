@@ -49,6 +49,18 @@ sys	0m0.144s
 
 ###Robimy geoJSONy
 
+Do przygotowania obiektów `geoJSON` użyjemy prostego skryptu powłoki `Mongo`, który z pól: `FEATURE_ID` ,`FEATURE_NAME` ,`PRIM_LONG_DEC` ,`PRIM_LAT_DEC` utworzy obiekty o takiej strukturze:
+
+```json
+{
+	"id": FEATURE_ID,
+	"name": FEATURE_NAME,
+	"loc": { "type":"Point", "coordinates": [ PRIM_LONG_DEC , PRIM_LAT_DEC ] }
+}
+```
+
+Uruchamiamy skrypt:
+
 ```sh
 time mongo geony script.js > make-geo-points-results.txt 
 ```
