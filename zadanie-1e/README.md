@@ -143,3 +143,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 	}
 ]
 ```
+
+##Wyniki z MongoDB Management Service
+
+![mms-results-1](1e-mms-1.png)
