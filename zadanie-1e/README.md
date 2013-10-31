@@ -12,6 +12,22 @@ Do rozwiązania zadania użyłem danych ze strony [`U.S. Geological Survey`](htt
 
 Źródło danych: [link](http://geonames.usgs.gov/docs/stategaz/NY_Features_20131020.zip)
 
+####Format pliku
+
+Plik zawiera wartości oddzielone znakiem `|`. Linia z nagłówkami:
+
+```
+FEATURE_ID|FEATURE_NAME|FEATURE_CLASS|STATE_ALPHA|STATE_NUMERIC|COUNTY_NAME|COUNTY_NUMERIC|PRIMARY_LAT_DMS|
+PRIM_LONG_DMS|PRIM_LAT_DEC|PRIM_LONG_DEC|SOURCE_LAT_DMS|SOURCE_LONG_DMS|SOURCE_LAT_DEC|SOURCE_LONG_DEC|
+ELEV_IN_M|ELEV_IN_FT|MAP_NAME|DATE_CREATED|DATE_EDITED
+``` 
+
+Przykładowa linia z danymi:
+
+```
+205110|Appalachian National Scenic Trail|Trail|PA|42|Perry|099|401920N|0770439W|40.3221113|
+-77.0775473|||||200|656|Wertzville|09/12/1979|01/03/2010
+```
 
 ##EDA
 
