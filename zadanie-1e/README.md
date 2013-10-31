@@ -114,7 +114,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 
 ```json
 [
-	{ // #1 na mapie poniżej
+	{
 		"_id" : ObjectId("527173ea5ac806a1e7c896ca"),
 		"id" : 209943,
 		"name" : "Port Chester Harbor",
@@ -123,7 +123,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 			"coordinates" : [ -73.6605406, 40.9844661 ]
 		}
 	},
-	{ // #2 na mapie poniżej
+	{
 		"_id" : ObjectId("527173ed5ac806a1e7c91ee6"),
 		"id" : 977443,
 		"name" : "Manursing Island Reef",
@@ -132,7 +132,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 			"coordinates" : [ -73.6595721, 40.9845422 ]
 		}
 	},
-	{ // #3 na mapie poniżej
+	{
 		"_id" : ObjectId("527173ed5ac806a1e7c91eb4"),
 		"id" : 977393,
 		"name" : "Port Chester Harbor",
@@ -145,6 +145,8 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 ```
 
 ####Wynik na Google Maps
+
+`1` - Port Chester Harbor (wybrany punkt), `2` - Manursing Island Reef, `3` - Port Chester Harbor ("id" : 977393).
 
 ![google-maps-1](1e-sampel1.png)
 
