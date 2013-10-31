@@ -1,6 +1,33 @@
 var mongo = require('mongodb');
+var mongo2 = require('mongodb');
 
 var db = new mongo.Db('train', new mongo.Server('localhost', 27017), {safe: true});
+
+var tagsCount = 0;
+var itemsCount = 0;
+var updatesCount = 0;
+var updatedCount = 0;
+var tags = {};
+var diffTags = 0;
+
+var flushData = function (data){
+
+  db.collection('train2', function (err, coll) {
+    if(err){
+      db.close();
+      console.log(err); 
+    }
+    else{
+      coll.insert(data, function (err, item) {
+        updatedCount += data.length;
+        if(updatedCount % 10000 === 0 || updatesCount === 6034195){
+          console.log('#@$% Wykonano ' + updatedCount + " aktualizacji.");
+        }
+      });
+    }
+  });
+
+};
 
 db.open(function (err) {
   if(err){ console.log(err); }
@@ -14,13 +41,7 @@ db.open(function (err) {
       }
       else{
         var cursor = coll.find();
-        var tagsCount = 0;
-        var itemsCount = 0;
-        var updatesCount = 0;
-        var updatedCount = 0;
-        var tags = {};
-        var diffTags = 0;
-        // var tagsToUpdate = [];
+        var tagsToUpdate = [];
 
         cursor.each(function(err, item) {
           if(err){
@@ -29,16 +50,6 @@ db.open(function (err) {
           }
           else if(item === null){
               //czekamy aż mongo zakończy update-y
-
-              // for(var i =0; i < tagsToUpdate.length; i++){
-              //   coll.update({Id: tagsToUpdate[i].Id}, {$set: {Tags: tagsToUpdate[i].Tags}}, function(err){
-              //     if(err) { console.log(err); }
-              //     else{
-              //       updatedCount++; //liczymy wykonane update-y
-              //     }
-              //   });
-              // }
-
               var interval = setInterval( function(){
                 if(updatesCount !== updatedCount){
                   console.log("Czekam na wszystkie update-y... \t " + updatedCount + "\\" + updatesCount);
@@ -53,7 +64,7 @@ db.open(function (err) {
                   console.log("   ilość tagów: " + tagsCount);
                   console.log(" różnych tagów: " + diffTags);
                 }
-              }, 30000);
+              }, 1000);
           }
           else{
             itemsCount++;
@@ -78,16 +89,16 @@ db.open(function (err) {
                  tags[tagsSplited[i]]++;
                 }
               }
-              //zamiana stringa na tablicę w bazie
-              coll.update({Id: item.Id}, {$set: {Tags: tagsSplited}}, function(err){
-                if(err) { console.log(err); }
-                else{
-                  updatedCount++; //liczymy wykonane update-y
-                }
-              });
-              // tagsToUpdate.push({"Id": item.Id, "Tags": tagsSplited});
+              item.Tags = tagsSplited;
+
+              tagsToUpdate.push(item);
               
               updatesCount++; //liczymy ilość update-ów do wykonania
+
+              if(updatesCount % 1000 === 0 || updatesCount === 6034195){
+                flushData(tagsToUpdate);
+                tagsToUpdate = [];
+              }
             }
 
             if(itemsCount % 10000 === 0){
