@@ -42,8 +42,8 @@ time node script.js
 MongoDB Połączono!
 ...
 obiektów: 6030000 aktualizacji: 6030000 tagów: 17397682 różnych tagów: 42047
-#@$% Wykonano 6030000 aktualizacji.
-#@$% Wykonano 6034195 aktualizacji.
+Wykonano 6030000 aktualizacji.
+Wykonano 6034195 aktualizacji.
 Update-y zakończone.
 MongoDB Rozłączone!
 ilość obiektów: 6034195
@@ -65,7 +65,11 @@ Element po wykonaniu aktualizacji:
   "_id" : ObjectId("527236d49bf8f201b1bd461e"),
   "Id" : 1,
   "Title" : "How to check if an uploaded file is an image without mime type?",
-  "Body" : "<p>I'd like to check if an uploaded file is an image file (e.g png, jpg, jpeg, gif, bmp) or another file. The problem is that I'm using Uploadify to upload the files, which changes the mime type and gives a 'text/octal' or something as the mime type, no matter which file type you upload.</p>  <p>Is there a way to check if the uploaded file is an image apart from checking the file extension using PHP?</p> ",
+  "Body" : "<p>I'd like to check if an uploaded file is an image file (e.g png, jpg, jpeg, gif, bmp)
+   or another file. The problem is that I'm using Uploadify to upload the files, which changes the 
+   mime type and gives a 'text/octal' or something as the mime type, no matter which file type you 
+   upload.</p>  <p>Is there a way to check if the uploaded file is an image apart from checking the 
+   file extension using PHP?</p> ",
   "Tags" : [
     "php",
     "image-processing",
