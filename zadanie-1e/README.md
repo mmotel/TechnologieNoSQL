@@ -18,22 +18,25 @@ Plik zawiera wartości oddzielone znakiem `|`. Linia z nagłówkami:
 
 ```
 FEATURE_ID|FEATURE_NAME|FEATURE_CLASS|STATE_ALPHA|STATE_NUMERIC|COUNTY_NAME|COUNTY_NUMERIC|PRIMARY_LAT_DMS|
-PRIM_LONG_DMS|PRIM_LAT_DEC|PRIM_LONG_DEC|SOURCE_LAT_DMS|SOURCE_LONG_DMS|SOURCE_LAT_DEC|SOURCE_LONG_DEC|
-ELEV_IN_M|ELEV_IN_FT|MAP_NAME|DATE_CREATED|DATE_EDITED
+PRIM_LONG_
+DMS|PRIM_LAT_DEC|PRIM_LONG_DEC|SOURCE_LAT_DMS|SOURCE_LONG_DMS|SOURCE_LAT_DEC|SOURCE_LONG_DEC|ELEV_IN_M|ELEV_IN_FT|MAP_
+NAME|DATE_CREATED|DATE_EDITED
 ``` 
 
 Przykładowa linia z danymi:
 
 ```
-205110|Appalachian National Scenic Trail|Trail|PA|42|Perry|099|401920N|0770439W|40.3221113|
--77.0775473|||||200|656|Wertzville|09/12/1979|01/03/2010
+205110|Appalachian National Scenic Trail|Trail|PA|42|Perry|099|401920N|0770439W|40.3221113|-77.0775473|||||200|656|
+Wertzville|09/12/1979|01/03/2010
 ```
 
 ##EDA
 
 ###Przygotowanie danych
 
-####Poprawka pliku
+####Poprawienie pliku
+
+Przerabiamy plik do formatu `.csv`. Aby to zrobić musimy jedynie zamienić `|` na `,`.
 
 ```sh
 cat NY_Features_20131020.txt | tr "|" "," > NY_Prepared.txt
@@ -117,6 +120,8 @@ Wybrany punkt:
 
 Port Chester Harbor w Google Maps: [link](http://goo.gl/maps/V2i7z)
 
+![google-maps-selected-point-1](1e-selected-point-1.png)
+
 ```js
 var punkt = { 
 	"type" : "Point", 
@@ -164,7 +169,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 
 `1` - Port Chester Harbor (wybrany punkt), `2` - Manursing Island Reef, `3` - Port Chester Harbor ("id" : 977393).
 
-![google-maps-1](1e-sampel1.png)
+![google-maps-example-1](1e-sampel1.png)
 
 ##Wyniki z MongoDB Management Service
 
