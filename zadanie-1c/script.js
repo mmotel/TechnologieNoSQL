@@ -21,7 +21,7 @@ var flushData = function (data){
       coll.insert(data, function (err, item) {
         updatedCount += data.length;
         if(updatedCount % 10000 === 0 || updatesCount === 6034195){
-          console.log('#@$% Wykonano ' + updatedCount + " aktualizacji.");
+          console.log('Wykonano ' + updatedCount + " aktualizacji.");
         }
       });
     }
