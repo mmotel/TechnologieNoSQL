@@ -102,7 +102,7 @@ db.geony.ensureIndex({"loc" : "2dsphere"});
 
 ##Zapytania
 
-###$near
+###Przykład 1: $near
 
 Wybrany punkt:
 
@@ -170,6 +170,25 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 `1` - Port Chester Harbor (wybrany punkt), `2` - Manursing Island Reef, `3` - Port Chester Harbor ("id" : 977393).
 
 ![google-maps-example-1](1e-sampel1.png)
+
+###Przykład 2: $geoWithin
+
+####Wybrany punkt
+
+```json
+{ 
+	"_id" : ObjectId("527173ea5ac806a1e7c896d9"), 
+	"id" : 212165, "name" : "Wilshire Pond Brook", 
+	"loc" : { 
+		"type" : "Point", 
+		"coordinates" : [  -73.6537393,  41.1028742 ] 
+	} 
+}
+```
+
+Wilshire Pond Brook na Google Maps: [link](http://goo.gl/maps/MUJ16)
+
+![google-maps-selected-point-2](1e-selected-point-2.png)
 
 ##Wyniki z MongoDB Management Service
 
