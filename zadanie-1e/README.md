@@ -191,7 +191,7 @@ Wilshire Pond Brook na Google Maps: [link](http://goo.gl/maps/MUJ16)
 
 ![google-maps-selected-point-2](1e-selected-point-2.png)
 
-####Wykonujemy zapytanie
+####Zapytanie
 
 ```js
 db.geony.find({
@@ -242,7 +242,7 @@ var punkt = {
 };
 ```
 
-####Wykonujemy zapytanie
+####Zapytanie
 
 ```js
 db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 10000 } }).toArray();
@@ -279,6 +279,64 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 10000 } }).toArra
 ```
 
 Pełny wynik zapytania: tutaj.
+
+###Przykład 3: $geoWithin 
+
+####Wybrany obszar
+
+```js
+var obszar = { 
+    "type" : "Polygon", 
+    "coordinates" : 
+    [ [ 
+        [ -74 , 40.75 ], 
+        [ -73 , 40.75 ], 
+        [ -73 , 40    ], 
+        [ -74 , 40    ], 
+        [ -74 , 40.75 ] 
+    ] ]
+};
+```
+
+Obszar na Google Maps:
+
+![google-maps-sampel-4](1e-selected-polygon.png)
+
+####Zapytanie
+
+```js
+db.geony.find({ loc : { $geoWithin : { $geometry : obszar } } }).toArray();
+```
+
+####Wynik
+
+```js
+7343 //ilość obiektów
+```
+
+```json
+[
+  {
+    "_id" : ObjectId("5274e858883c9f1a74854530"),
+    "id" : 942423,
+    "name" : "Ambrose Channel",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.922195, 40.488215 ]
+    }
+  },
+  //...
+  {
+    "_id" : ObjectId("5274e85b883c9f1a7485ff64"),
+    "id" : 2358931,
+    "name" : "Gilgo Life Saving Station (historical)",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.3736111, 40.6213889 ]
+    }
+  }
+]
+```
 
 ##Wyniki z MongoDB Management Service
 
