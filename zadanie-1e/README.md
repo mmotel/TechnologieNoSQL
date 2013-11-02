@@ -195,14 +195,38 @@ Wilshire Pond Brook na Google Maps: [link](http://goo.gl/maps/MUJ16)
 
 ```js
 db.geony.find({
-	loc: {$geoWithin : { $center : [ [ -73.6537393,  41.1028742 ] , 1 ] } } 
-}).count();
+	loc: {$geoWithin : { $center : [ [ -73.6537393,  41.1028742 ] , 0.1 ] } } 
+}).toArray();
 ```
 
 ####Wynik
 
 ```js
-25235
+182 //ilość obiektów
+```
+
+```json
+[
+	{
+		"_id" : ObjectId("5274e857883c9f1a74854351"),
+		"id" : 206430,
+		"name" : "Converse Lake",
+		"loc" : {
+			"type" : "Point",
+			"coordinates" : [ -73.6520811, 41.1326454 ]
+		}
+	},
+	//...
+	{
+		"_id" : ObjectId("5274e85e883c9f1a7486695e"),
+		"id" : 2716089,
+		"name" : "Banksville Independent Fire Company",
+		"loc" : {
+			"type" : "Point",
+			"coordinates" : [ -73.6424369, 41.1449055 ]
+		}
+	}
+]
 ```
 
 Pełny wynik zapytania: tutaj.
