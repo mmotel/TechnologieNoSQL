@@ -435,3 +435,5 @@ db.geony.find({ loc : { $geoIntersects : { $geometry : linia } } }).toArray();
 ![mms-results-1](1e-mms-1.png)
 
 ![mms-results-1](1e-mms-2.png)
+
+Dziękuję. Dobranoc.
