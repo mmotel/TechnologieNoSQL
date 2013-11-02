@@ -170,7 +170,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 
 ![google-maps-example-1](1e-sampel1.png)
 
-###Przykład 2: $geoWithin
+###Przykład 2.1: $geoWithin
 
 ####Wybrany punkt
 
@@ -224,6 +224,61 @@ db.geony.find({
 		"loc" : {
 			"type" : "Point",
 			"coordinates" : [ -73.6424369, 41.1449055 ]
+		}
+	}
+]
+```
+
+Pełny wynik zapytania: tutaj.
+
+###Przykład 2.2: $near
+
+####Wyrabny punkty (ten sam jak w przykładzie 2.1)
+
+```js
+var punkt = { 
+    "type" : "Point", 
+    "coordinates" : [  -73.6537393,  41.1028742 ] 
+};
+```
+
+####Wykonujemy zapytanie
+
+```js
+db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 10000 } }).toArray();
+```
+
+####Wynik
+
+```js
+176 //ilość obiektów
+```
+
+```json
+[
+	{
+		"_id" : ObjectId("5274e85a883c9f1a7485b432"),
+		"id" : 971407,
+		"name" : "Wilshire Pond Brook",
+		"loc" : {
+			"type" : "Point",
+			"coordinates" : [
+				-73.6537393,
+				41.1028742
+			]
+		}
+	},
+	//...
+	{
+		"_id" : ObjectId("5274e85b883c9f1a7485fcf0"),
+		"id" : 2125385,
+		"name" : "Brace Memorial School (historical)",
+		"loc" : {
+			"type" : "Point",
+			"coordinates" : [
+				-73.7725,
+				41.0980556
+			]
 		}
 	}
 ]
