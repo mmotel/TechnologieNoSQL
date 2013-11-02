@@ -177,7 +177,8 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 ```json
 { 
 	"_id" : ObjectId("527173ea5ac806a1e7c896d9"), 
-	"id" : 212165, "name" : "Wilshire Pond Brook", 
+	"id" : 212165, 
+	"name" : "Wilshire Pond Brook", 
 	"loc" : { 
 		"type" : "Point", 
 		"coordinates" : [  -73.6537393,  41.1028742 ] 
@@ -185,9 +186,26 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 }
 ```
 
+
 Wilshire Pond Brook na Google Maps: [link](http://goo.gl/maps/MUJ16)
 
 ![google-maps-selected-point-2](1e-selected-point-2.png)
+
+####Wykonujemy zapytanie
+
+```js
+db.geony.find({
+	loc: {$geoWithin : { $center : [ [ -73.6537393,  41.1028742 ] , 1 ] } } 
+}).count();
+```
+
+####Wynik
+
+```js
+25235
+```
+
+Pełny wynik zapytania: tutaj.
 
 ##Wyniki z MongoDB Management Service
 
