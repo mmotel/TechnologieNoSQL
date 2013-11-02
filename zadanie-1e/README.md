@@ -367,6 +367,10 @@ db.geony.find({ loc : { $geoIntersects : { $geometry : obszar } } }).toArray();
 ####Wynik
 
 ```js
+7343 //ilość obiektów
+```
+
+```json
 [
   {
     "_id" : ObjectId("5274e858883c9f1a74854530"),
