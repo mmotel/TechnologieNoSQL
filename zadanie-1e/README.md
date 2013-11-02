@@ -356,6 +356,7 @@ var obszar = {
         [ -74 , 40.75 ] 
     ] ]
 };
+```
 
 ####Zapytanie
 
@@ -388,6 +389,8 @@ db.geony.find({ loc : { $geoIntersects : { $geometry : obszar } } }).toArray();
   }
 ]
 ```
+
+Pełny wynik zapytania: tutaj.
 
 ##Wyniki z MongoDB Management Service
 
