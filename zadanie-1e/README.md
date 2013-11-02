@@ -237,8 +237,8 @@ Pełny wynik zapytania: tutaj.
 
 ```js
 var punkt = { 
-    "type" : "Point", 
-    "coordinates" : [  -73.6537393,  41.1028742 ] 
+  "type" : "Point", 
+  "coordinates" : [  -73.6537393,  41.1028742 ] 
 };
 ```
 
@@ -262,10 +262,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 10000 } }).toArra
     "name" : "Wilshire Pond Brook",
     "loc" : {
       "type" : "Point",
-      "coordinates" : [
-        -73.6537393,
-        41.1028742
-      ]
+      "coordinates" : [ -73.6537393, 41.1028742 ]
     }
   },
   //...
@@ -275,10 +272,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 10000 } }).toArra
     "name" : "Brace Memorial School (historical)",
     "loc" : {
       "type" : "Point",
-      "coordinates" : [
-        -73.7725,
-        41.0980556
-      ]
+      "coordinates" : [ -73.7725, 41.0980556 ]
     }
   }
 ]
