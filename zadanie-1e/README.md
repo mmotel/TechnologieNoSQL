@@ -289,3 +289,5 @@ Pełny wynik zapytania: tutaj.
 ##Wyniki z MongoDB Management Service
 
 ![mms-results-1](1e-mms-1.png)
+
+![mms-results-1](1e-mms-2.png)
