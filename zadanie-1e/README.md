@@ -396,6 +396,40 @@ db.geony.find({ loc : { $geoIntersects : { $geometry : obszar } } }).toArray();
 
 Pełny wynik zapytania: tutaj.
 
+###Przykład 4: $geoIntersects
+
+####Wybrana linia
+
+```js
+var linia = { 
+  "type": "LineString", 
+  "coordinates": 
+    [
+      [ -73 , 40 ] , [ -74 , 40.75 ]
+    ]
+};
+```
+
+Wybrana linia na Google Maps:
+
+![google-maps-selected-lineString](1e-selected-line.png)
+
+####Zapytanie
+
+```js
+db.geony.find({ loc : { $geoIntersects : { $geometry : linia } } }).toArray();
+```
+
+####Wynik
+
+```js
+0 //ilość obiektów
+```
+
+```json
+[ ]
+```
+
 ##Wyniki z MongoDB Management Service
 
 ![mms-results-1](1e-mms-1.png)
