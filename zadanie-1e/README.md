@@ -51,8 +51,8 @@ time mongoimport -d geony -c ny --type csv --headerline --file NY_Prepared.txt
 
 ```sh
 connected to: 127.0.0.1
-Wed Oct 30 18:11:43.003 		Progress: 5484351/10467976	52%
-Wed Oct 30 18:11:43.003 			40900	13633/second
+Wed Oct 30 18:11:43.003     Progress: 5484351/10467976  52%
+Wed Oct 30 18:11:43.003       40900 13633/second
 Wed Oct 30 18:11:44.412 check 9 77132
 Wed Oct 30 18:11:44.538 imported 77131 objects
 ```
@@ -60,9 +60,9 @@ Wed Oct 30 18:11:44.538 imported 77131 objects
 ####Czasy
 
 ```sh
-real	0m4.324s
-user	0m1.392s
-sys	0m0.144s
+real  0m4.324s
+user  0m1.392s
+sys 0m0.144s
 ```
 
 ###Robimy geoJSONy
@@ -71,9 +71,9 @@ Do przygotowania obiektów `geoJSON` użyjemy prostego skryptu powłoki `Mongo`,
 
 ```json
 {
-	"id": FEATURE_ID,
-	"name": FEATURE_NAME,
-	"loc": { "type":"Point", "coordinates": [ PRIM_LONG_DEC , PRIM_LAT_DEC ] }
+  "id": FEATURE_ID,
+  "name": FEATURE_NAME,
+  "loc": { "type":"Point", "coordinates": [ PRIM_LONG_DEC , PRIM_LAT_DEC ] }
 }
 ```
 
@@ -88,9 +88,9 @@ time mongo geony script.js > make-geo-points-results.txt
 ####Czasy
 
 ```sh
-real	0m7.311s
-user	0m6.484s
-sys	0m0.772s
+real  0m7.311s
+user  0m6.484s
+sys 0m0.772s
 ```
 
 ####Dodajemy indeks:
@@ -107,13 +107,13 @@ Wybrany punkt:
 
 ```json
 { 
-	"_id" : ObjectId("527173ea5ac806a1e7c896ca"), 
-	"id" : 209943, 
-	"name" : "Port Chester Harbor", 
-	"loc" : { 
-		"type" : "Point", 
-		"coordinates" : [ -73.6605406,  40.9844661 ] 
-	} 
+  "_id" : ObjectId("527173ea5ac806a1e7c896ca"), 
+  "id" : 209943, 
+  "name" : "Port Chester Harbor", 
+  "loc" : { 
+    "type" : "Point", 
+    "coordinates" : [ -73.6605406,  40.9844661 ] 
+  } 
 }
 ```
 
@@ -123,8 +123,8 @@ Port Chester Harbor w Google Maps: [link](http://goo.gl/maps/V2i7z)
 
 ```js
 var punkt = { 
-	"type" : "Point", 
-	"coordinates" : [ -73.6605406,  40.9844661 ] 
+  "type" : "Point", 
+  "coordinates" : [ -73.6605406,  40.9844661 ] 
 };
 
 db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
@@ -134,33 +134,33 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 
 ```json
 [
-	{
-		"_id" : ObjectId("527173ea5ac806a1e7c896ca"),
-		"id" : 209943,
-		"name" : "Port Chester Harbor",
-		"loc" : {
-			"type" : "Point",
-			"coordinates" : [ -73.6605406, 40.9844661 ]
-		}
-	},
-	{
-		"_id" : ObjectId("527173ed5ac806a1e7c91ee6"),
-		"id" : 977443,
-		"name" : "Manursing Island Reef",
-		"loc" : {
-			"type" : "Point",
-			"coordinates" : [ -73.6595721, 40.9845422 ]
-		}
-	},
-	{
-		"_id" : ObjectId("527173ed5ac806a1e7c91eb4"),
-		"id" : 977393,
-		"name" : "Port Chester Harbor",
-		"loc" : {
-			"type" : "Point",
-			"coordinates" : [ -73.6610683, 40.9834385 ]
-		}
-	}
+  {
+    "_id" : ObjectId("527173ea5ac806a1e7c896ca"),
+    "id" : 209943,
+    "name" : "Port Chester Harbor",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.6605406, 40.9844661 ]
+    }
+  },
+  {
+    "_id" : ObjectId("527173ed5ac806a1e7c91ee6"),
+    "id" : 977443,
+    "name" : "Manursing Island Reef",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.6595721, 40.9845422 ]
+    }
+  },
+  {
+    "_id" : ObjectId("527173ed5ac806a1e7c91eb4"),
+    "id" : 977393,
+    "name" : "Port Chester Harbor",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.6610683, 40.9834385 ]
+    }
+  }
 ]
 ```
 
@@ -176,13 +176,13 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 
 ```json
 { 
-	"_id" : ObjectId("527173ea5ac806a1e7c896d9"), 
-	"id" : 212165, 
-	"name" : "Wilshire Pond Brook", 
-	"loc" : { 
-		"type" : "Point", 
-		"coordinates" : [  -73.6537393,  41.1028742 ] 
-	} 
+  "_id" : ObjectId("527173ea5ac806a1e7c896d9"), 
+  "id" : 212165, 
+  "name" : "Wilshire Pond Brook", 
+  "loc" : { 
+    "type" : "Point", 
+    "coordinates" : [  -73.6537393,  41.1028742 ] 
+  } 
 }
 ```
 
@@ -195,7 +195,7 @@ Wilshire Pond Brook na Google Maps: [link](http://goo.gl/maps/MUJ16)
 
 ```js
 db.geony.find({
-	loc: {$geoWithin : { $center : [ [ -73.6537393,  41.1028742 ] , 0.1 ] } } 
+  loc: {$geoWithin : { $center : [ [ -73.6537393,  41.1028742 ] , 0.1 ] } } 
 }).toArray();
 ```
 
@@ -207,25 +207,25 @@ db.geony.find({
 
 ```json
 [
-	{
-		"_id" : ObjectId("5274e857883c9f1a74854351"),
-		"id" : 206430,
-		"name" : "Converse Lake",
-		"loc" : {
-			"type" : "Point",
-			"coordinates" : [ -73.6520811, 41.1326454 ]
-		}
-	},
-	//...
-	{
-		"_id" : ObjectId("5274e85e883c9f1a7486695e"),
-		"id" : 2716089,
-		"name" : "Banksville Independent Fire Company",
-		"loc" : {
-			"type" : "Point",
-			"coordinates" : [ -73.6424369, 41.1449055 ]
-		}
-	}
+  {
+    "_id" : ObjectId("5274e857883c9f1a74854351"),
+    "id" : 206430,
+    "name" : "Converse Lake",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.6520811, 41.1326454 ]
+    }
+  },
+  //...
+  {
+    "_id" : ObjectId("5274e85e883c9f1a7486695e"),
+    "id" : 2716089,
+    "name" : "Banksville Independent Fire Company",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.6424369, 41.1449055 ]
+    }
+  }
 ]
 ```
 
@@ -256,31 +256,31 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 10000 } }).toArra
 
 ```json
 [
-	{
-		"_id" : ObjectId("5274e85a883c9f1a7485b432"),
-		"id" : 971407,
-		"name" : "Wilshire Pond Brook",
-		"loc" : {
-			"type" : "Point",
-			"coordinates" : [
-				-73.6537393,
-				41.1028742
-			]
-		}
-	},
-	//...
-	{
-		"_id" : ObjectId("5274e85b883c9f1a7485fcf0"),
-		"id" : 2125385,
-		"name" : "Brace Memorial School (historical)",
-		"loc" : {
-			"type" : "Point",
-			"coordinates" : [
-				-73.7725,
-				41.0980556
-			]
-		}
-	}
+  {
+    "_id" : ObjectId("5274e85a883c9f1a7485b432"),
+    "id" : 971407,
+    "name" : "Wilshire Pond Brook",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [
+        -73.6537393,
+        41.1028742
+      ]
+    }
+  },
+  //...
+  {
+    "_id" : ObjectId("5274e85b883c9f1a7485fcf0"),
+    "id" : 2125385,
+    "name" : "Brace Memorial School (historical)",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [
+        -73.7725,
+        41.0980556
+      ]
+    }
+  }
 ]
 ```
 
