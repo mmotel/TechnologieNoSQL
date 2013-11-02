@@ -229,8 +229,6 @@ db.geony.find({
 ]
 ```
 
-Pełny wynik zapytania: tutaj.
-
 ###Przykład 2.2: $near
 
 ####Wyrabny punkty (ten sam jak w przykładzie 2.1)
@@ -277,8 +275,6 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 10000 } }).toArra
   }
 ]
 ```
-
-Pełny wynik zapytania: tutaj.
 
 ###Przykład 3.1: $geoWithin 
 
@@ -338,8 +334,6 @@ db.geony.find({ loc : { $geoWithin : { $geometry : obszar } } }).toArray();
 ]
 ```
 
-Pełny wynik zapytania: tutaj.
-
 ###Przykład 3.2: $geoIntersects
 
 ####Wybrany obszar (taki sam jak w przykładzie 3.1)
@@ -393,8 +387,6 @@ db.geony.find({ loc : { $geoIntersects : { $geometry : obszar } } }).toArray();
   }
 ]
 ```
-
-Pełny wynik zapytania: tutaj.
 
 ###Przykład 4: $geoIntersects
 
