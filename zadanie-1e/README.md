@@ -280,7 +280,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 10000 } }).toArra
 
 Pełny wynik zapytania: tutaj.
 
-###Przykład 3: $geoWithin 
+###Przykład 3.1: $geoWithin 
 
 ####Wybrany obszar
 
@@ -315,6 +315,57 @@ db.geony.find({ loc : { $geoWithin : { $geometry : obszar } } }).toArray();
 ```
 
 ```json
+[
+  {
+    "_id" : ObjectId("5274e858883c9f1a74854530"),
+    "id" : 942423,
+    "name" : "Ambrose Channel",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.922195, 40.488215 ]
+    }
+  },
+  //...
+  {
+    "_id" : ObjectId("5274e85b883c9f1a7485ff64"),
+    "id" : 2358931,
+    "name" : "Gilgo Life Saving Station (historical)",
+    "loc" : {
+      "type" : "Point",
+      "coordinates" : [ -73.3736111, 40.6213889 ]
+    }
+  }
+]
+```
+
+Pełny wynik zapytania: tutaj.
+
+###Przykład 3.2: $geoIntersects
+
+####Wybrany obszar (taki sam jak w przykładzie 3.1)
+
+```js
+var obszar = { 
+    "type" : "Polygon", 
+    "coordinates" : 
+    [ [ 
+        [ -74 , 40.75 ], 
+        [ -73 , 40.75 ], 
+        [ -73 , 40    ], 
+        [ -74 , 40    ], 
+        [ -74 , 40.75 ] 
+    ] ]
+};
+
+####Zapytanie
+
+```js
+db.geony.find({ loc : { $geoIntersects : { $geometry : obszar } } }).toArray();
+```
+
+####Wynik
+
+```js
 [
   {
     "_id" : ObjectId("5274e858883c9f1a74854530"),
