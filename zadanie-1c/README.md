@@ -4,14 +4,6 @@
 
 Zadanie 1c. (Zamiana formatu danych.) Zamienić string zawierający tagi na tablicę napisów z tagami następnie zliczyć wszystkie tagi i wszystkie różne tagi. Napisać program, który to zrobi korzystając z jednego ze sterowników. Lista sterowników jest na stronie [MongoDB Ecosystem](http://docs.mongodb.org/ecosystem/).
 
-##Rozwiązanie `powłoka Mongo`
-
-Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na powłoce `Mongo`.
-
-##Rozwiązanie `Node.JS`
-
-Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze [`Node.JS`](http://nodejs.org/) w wersji `0.10.21`, który korzysta ze sterownika [`The Node.JS MongoDB Driver`](http://mongodb.github.io/node-mongodb-native/) w wersji `1.3.19`.
-
 
 ##Zamiana ciągu napisów na tablicę napisów
 
@@ -29,14 +21,17 @@ if(item.Tags.constructor !== Array){
 }
 ```
 
-##Wyniki
+##Rozwiązanie `Node.JS`
 
+Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze [`Node.JS`](http://nodejs.org/) w wersji `0.10.21`, który korzysta ze sterownika [`The Node.JS MongoDB Driver`](http://mongodb.github.io/node-mongodb-native/) w wersji `1.3.19`.
 
-###scrpit.js (Node.js)
+####Uruchomienie
 
 ```sh
 time node script.js
 ```
+
+####Wynik
 
 ```sh
 MongoDB Połączono!
@@ -91,7 +86,9 @@ sys   0m10.816s
 
 W ciągu `13m1.030s` wykonano `6 034 195` aktualizacji. Co średnio daje `~7 726` aktualizacji na sekundę.
 
-###mongoScript.js
+##Rozwiązanie `powłoka Mongo`
+
+Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na powłoce `Mongo`.
 
 ```sh
 time mongo train mongoScript.js 
