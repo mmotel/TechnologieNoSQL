@@ -136,6 +136,12 @@ sys   0m14.732s
 
 W ciągu `18m46.243s` wykonano `6 034 195` aktualizacji. Co średnio daje `~5 358` aktualizacji na sekundę.
 
+###Zlicznone tagi
+
+Surowy wynik: [tutaj](./raw-tags.txt)
+
+Posortowany wynik: [tutaj](./sorted-tags.txt)
+
 ##Wyniki z MongoDB Management Service
 
 ####script.js
