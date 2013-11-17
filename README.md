@@ -3,12 +3,24 @@
 Technologie noSQL - `laboratoria`
 
 ##Wersje baz danych
-* MongoDB `2.4.7 / 2.5.2` `update 2.4.6 -> 2.4.7`
+* MongoDB `2.4.7 / 2.5.2` `update 2.4.6 -> 2.4.7 -> 2.4.8`
 * CouchDB `1.3.1 / 1.4.0`
 * Elasticsearch `0.90.5`
 
 ##Instalacje
 * [MongoDB na Ubuntu](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
+
+##Zadanie 2
+
+1. Wyszukać w sieci dane zawierające co najmniej `1 000 000` rekordów/jsonów.
+
+2. Dane zapisać w bazach `MongoDB` i `Elasticsearch`.
+
+3. Wymyśleć i opisać cztery agregacje – po dwie dla każdej z baz.
+
+4. Zaprogramować i wykonać wszystkie aggregacje.
+
+5. Wyniki przedstawić w postaci graficznej (wykresów, itp.).
 
 ##Zadanie 1
 
@@ -42,4 +54,4 @@ Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.j
  * [Zadanie 1a i 1b](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1a-1b) 
  * [Zadanie 1c](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1c)
  * [Zadanie 1d](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1d)
- * [Zadanie 1e*](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1e) - niedokończone 
+ * [Zadanie 1e](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1e) 
