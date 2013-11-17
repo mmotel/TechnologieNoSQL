@@ -10,7 +10,7 @@ Dla zapisanych danych przygotować 6–9 różnych [`Geospatial Queries`](http:/
 
 Do rozwiązania zadania użyłem danych ze strony [`U.S. Geological Survey`](http://www.usgs.gov/) z działu [`United States Board on Geographic Names`](http://geonames.usgs.gov/) pt. [`Domestic and Antarctic Names`](http://geonames.usgs.gov/domestic/download_data.htm) dla stanu `Nowy Jork`.
 
-Źródło danych: [link](http://geonames.usgs.gov/docs/stategaz/NY_Features_20131020.zip)
+Źródło danych: [link](http://geonames.usgs.gov/docs/stategaz/NY_Features_20131020.zip).
 
 ####Format pliku
 
@@ -121,7 +121,7 @@ Wybrany punkt:
 }
 ```
 
-Port Chester Harbor w Google Maps: [link](http://goo.gl/maps/V2i7z)
+Port Chester Harbor w Google Maps: [link](http://goo.gl/maps/V2i7z).
 
 ![google-maps-selected-point-1](./images/1e-selected-point-1.png)
 
@@ -191,7 +191,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 ```
 
 
-Wilshire Pond Brook na Google Maps: [link](http://goo.gl/maps/MUJ16)
+Wilshire Pond Brook na Google Maps: [link](http://goo.gl/maps/MUJ16).
 
 ![google-maps-selected-point-2](./images/1e-selected-point-2.png)
 
