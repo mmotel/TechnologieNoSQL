@@ -26,7 +26,7 @@ Technologie noSQL - `laboratoria`
 
 Co to jest [Exploratory Data Analysis](http://en.wikipedia.org/wiki/Exploratory_Data_Analysis) (EDA)?
 
-![data cleaning](http://wbzyl.inf.ug.edu.pl/nosql/images/data-cleaning.png "data-cleaning")
+![data cleaning](./data-cleaning.png)
 
 Na [Kaggle](https://www.kaggle.com/) znajdziemy dużo interesujących danych. W sierpniu 2013 Facebook ogłosił konkurs [Identify keywords and tags from millions of text questions](https://www.kaggle.com/c/facebook-recruiting-iii-keyword-extraction). Skorzystamy z danych udostępnionych na ten konkurs przez [Stack Exchange](http://stackexchange.com/):
 
