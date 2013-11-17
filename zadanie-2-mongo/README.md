@@ -26,4 +26,41 @@
 }
 ```
 
-Dane z lat 2007–2012, tylko filmy i przedstawienia TV.
+Dane z [IMDB](http://www.imdb.com/) z lat 2007–2012, tylko filmy i przedstawienia TV.
+
+##Import
+
+Po ściągnięciu danych rozkapowujemy je:
+
+```sh
+tar -xf getglue_sample.tar.gz
+```
+
+Rozpakowany plik nadaje się do importu. Używając polecenia `time` mierzymy czas import'u.
+
+```sh
+time mongoimport -d imdb -c imdb --type json --file getglue_sample.json
+```
+
+###Wynik
+
+```sh
+connected to: 127.0.0.1
+Sun Nov 17 10:25:55.008     Progress: 20335036/11454208342  0%
+Sun Nov 17 10:25:55.008       34100 11366/second
+...
+Sun Nov 17 10:45:55.167     Progress: 11429777869/11454208342 99%
+Sun Nov 17 10:45:55.167       19788300  16449/second
+Sun Nov 17 10:45:57.241 check 9 19831300
+Sun Nov 17 10:45:57.682 imported 19831300 objects
+```
+
+###Czasy
+
+```sh
+real  20m5.670s
+user  8m56.804s
+sys   0m29.428s
+```
+
+W ciągu `20m5.670s` do bazy zaimportowało się `19 831 300` obiektów. Co średnio daje `~16 457` insertów do bazy na sekundę.
