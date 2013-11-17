@@ -2,15 +2,19 @@
 
 Technologie noSQL - `laboratoria`
 
-##Wersje baz danych
+####Wersje baz danych
+
 * MongoDB `2.4.7 / 2.5.2` `update 2.4.6 -> 2.4.7 -> 2.4.8`
 * CouchDB `1.3.1 / 1.4.0`
 * Elasticsearch `0.90.5`
 
-##Instalacje
+####Instalacje
+
 * [MongoDB na Ubuntu](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
 
-##Zadanie 2
+***
+
+####*Zadanie 2*
 
 1. Wyszukać w sieci dane zawierające co najmniej `1 000 000` rekordów/jsonów.
 
@@ -27,7 +31,9 @@ Technologie noSQL - `laboratoria`
  * [MongoDB](./zadanie-2-mongo)
  * Elasticsearch
 
-##Zadanie 1
+***
+
+####*Zadanie 1*
 
 Co to jest [Exploratory Data Analysis](http://en.wikipedia.org/wiki/Exploratory_Data_Analysis) (EDA)?
 
@@ -61,8 +67,9 @@ Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.j
  * [Zadanie 1d](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1d)
  * [Zadanie 1e](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1e) 
 
+***
 
-##Ciekawe linki
+####*Ciekawe linki*
 
  * [Update a Github Fork from the Original Repo](http://bradlyfeeley.com/2008/09/03/update-a-github-fork-from-the-original-repo/)
  * [The GeoJSON Format Specification](http://geojson.org/geojson-spec.html#geojson-objects)
