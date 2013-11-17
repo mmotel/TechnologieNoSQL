@@ -67,7 +67,7 @@ W ciągu `20m5.670s` do bazy zaimportowało się `19 831 300` obiektów. Co śre
 
 ###Sprawdzenie
 
-```sh
+```js
 mongo
 MongoDB shell version: 2.4.8
 connecting to: test
