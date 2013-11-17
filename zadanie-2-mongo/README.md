@@ -76,3 +76,9 @@ switched to db imdb
 > db.imdb.count()
 19831300
 ```
+
+##Wyniki z MongoDB Management Service
+
+####Import
+
+![mms-results](./images/2-mongo-import-mms.png)
