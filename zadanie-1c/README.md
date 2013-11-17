@@ -25,6 +25,8 @@ if(item.Tags.constructor !== Array){
 
 Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na serwerze [`Node.JS`](http://nodejs.org/) w wersji `0.10.21`, który korzysta ze sterownika [`The Node.JS MongoDB Driver`](http://mongodb.github.io/node-mongodb-native/) w wersji `1.3.19`.
 
+Kod skryptu: [tutaj](./scripts/node/script.js).
+
 ####Uruchomienie
 
 ```sh
@@ -89,6 +91,8 @@ W ciągu `13m1.030s` wykonano `6 034 195` aktualizacji. Co średnio daje `~7 726
 ##Rozwiązanie `powłoka Mongo`
 
 Do rozwiązania zadania użyłem skryptu `JavaScript` uruchamianego na powłoce `Mongo`.
+
+Kod skryptu: [tutaj](./scripts/mongo/mongoScript.js).
 
 ```sh
 time mongo train mongoScript.js 
