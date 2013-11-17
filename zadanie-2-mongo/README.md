@@ -64,3 +64,15 @@ sys   0m29.428s
 ```
 
 W ciągu `20m5.670s` do bazy zaimportowało się `19 831 300` obiektów. Co średnio daje `~16 457` insertów do bazy na sekundę.
+
+###Sprawdzenie
+
+```sh
+mongo
+MongoDB shell version: 2.4.8
+connecting to: test
+> use imdb
+switched to db imdb
+> db.imdb.count()
+19831300
+```
