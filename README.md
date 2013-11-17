@@ -69,7 +69,7 @@ Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.j
 
 ***
 
-####*Ciekawe linki*
+###*Ciekawe linki*
 
  * [Update a Github Fork from the Original Repo](http://bradlyfeeley.com/2008/09/03/update-a-github-fork-from-the-original-repo/)
  * [The GeoJSON Format Specification](http://geojson.org/geojson-spec.html#geojson-objects)
