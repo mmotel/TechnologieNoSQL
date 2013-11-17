@@ -89,7 +89,7 @@ switched to db train
 
 ###Wyniki z MongoDB Management Service
 
-![mms-results](1a-import-mms.png)
+![mms-results](./images/1a-import-mms.png)
 
 Dziękuję. Dobranoc.
 
