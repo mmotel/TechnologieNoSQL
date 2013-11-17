@@ -148,10 +148,10 @@ Posortowany wynik: [tutaj](./sorted-tags.txt)
 
 `**` Czerwona linia oznacza wykonanie restartu bazy danych.
 
-![mms-results1](1c-converting-tags-mms2.png)
+![mms-results1](./images/1c-converting-tags-mms2.png)
 
 ####mongoScript.js
 
-![mms-results2](1c-converting-tags-mms.png)
+![mms-results2](./images/1c-converting-tags-mms.png)
 
 Dziękuję. Dobranoc.
