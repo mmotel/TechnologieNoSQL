@@ -79,10 +79,6 @@ switched to db text
 17005207
 ```
 
-###Wyniki z MongoDB Management Service
-
-![mms-results](1d-import-mms.png)
-
 ##Zliczanie słów
 
 ####Agregacja
@@ -98,6 +94,8 @@ coll.aggregate(
 ```
 
 Ustawiając lub wykomentowując `$limit` ustalamy ilość elementów, które otrzymamy w wyniku agregacji.
+
+Kod skryptu: [tutaj](./scripts/script.js).
 
 ####Różnych słów
 
@@ -206,6 +204,8 @@ connecting to: text
 }
 ```
 
+Pełny wynik: [tutaj](./data/100words.json)
+
 ```sh
  słów: 100
 ilość: 7998978
@@ -246,6 +246,8 @@ connecting to: text
 }
 ```
 
+Pełny wynik: [tutaj](./data/1000words.json)
+
 ```sh
  słów: 1000
 ilość: 11433354
@@ -259,8 +261,15 @@ real  0m16.109s
 user  0m0.112s
 sys   0m0.008s
 ```
+
 ##Wyniki z MongoDB Management Service
 
-![mms-results](1d-counting-words.png)
+####Import
+
+![mms-results](./images/1d-import-mms.png)
+
+####Zliczanie słów
+
+![mms-results](./images/1d-counting-words.png)
 
 Dziękuję. Dobranoc.
