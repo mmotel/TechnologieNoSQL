@@ -1,4 +1,4 @@
-#technologie-nosql
+#*technologie-nosql*
 
 Technologie noSQL - `laboratoria`
 
@@ -21,6 +21,11 @@ Technologie noSQL - `laboratoria`
 4. Zaprogramować i wykonać wszystkie aggregacje.
 
 5. Wyniki przedstawić w postaci graficznej (wykresów, itp.).
+
+####Rozwiązania:
+
+ * [MongoDB](./zadanie-2-mongo)
+ * Elasticsearch
 
 ##Zadanie 1
 
@@ -49,7 +54,7 @@ Przykładowy rekord `CSV` z pliku `Train.csv`:
 
 Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.json](https://github.com/nosql/aggregations-2/blob/master/data/wbzyl/fb101.json). Wybrałem je losowo po zapisaniu rekordów z `Train.csv` w bazie `MongoDB`.
 
-###Rozwiązania
+####Rozwiązania
 
  * [Zadanie 1a i 1b](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1a-1b) 
  * [Zadanie 1c](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1c)
