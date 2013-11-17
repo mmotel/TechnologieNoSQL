@@ -60,3 +60,12 @@ Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.j
  * [Zadanie 1c](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1c)
  * [Zadanie 1d](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1d)
  * [Zadanie 1e](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1e) 
+
+
+##Ciekawe linki
+
+ * [Update a Github Fork from the Original Repo](http://bradlyfeeley.com/2008/09/03/update-a-github-fork-from-the-original-repo/)
+ * [The GeoJSON Format Specification](http://geojson.org/geojson-spec.html#geojson-objects)
+ * [Geospatial Indexes and Queries](http://docs.mongodb.org/manual/applications/geospatial-indexes/)
+ * [GeoJSONLint - Validate your GeoJSON](http://geojsonlint.com/)
+ * [Aggregation Framework Examples (MongoDB, Javascript)](https://github.com/nosql/aggregations-2/blob/master/Aggregation-Framework-Examples-in-Javascript.md)
