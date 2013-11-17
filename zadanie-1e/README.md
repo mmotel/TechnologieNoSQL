@@ -79,6 +79,10 @@ Do przygotowania obiektów `geoJSON` użyjemy prostego skryptu powłoki `Mongo`,
 
 `**` Skrypt usuwa niepoprawne obiekty geoJSON z kolekcji `ny`. Jest ich `16`.
 
+Kod skryptu: [tutaj](./scripts/script.js).
+
+Wynik skryptu: [tutaj](./data/make-geo-points-results.txt).
+
 Uruchamiamy skrypt:
 
 ```sh
@@ -119,7 +123,7 @@ Wybrany punkt:
 
 Port Chester Harbor w Google Maps: [link](http://goo.gl/maps/V2i7z)
 
-![google-maps-selected-point-1](1e-selected-point-1.png)
+![google-maps-selected-point-1](./images/1e-selected-point-1.png)
 
 ```js
 var punkt = { 
@@ -168,7 +172,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 
 `1` - Port Chester Harbor (wybrany punkt), `2` - Manursing Island Reef, `3` - Port Chester Harbor ("id" : 977393).
 
-![google-maps-example-1](1e-sampel1.png)
+![google-maps-example-1](./images/1e-sampel1.png)
 
 ###Przykład 2.1: $geoWithin
 
@@ -189,7 +193,7 @@ db.geony.find({ loc: {$near: {$geometry: punkt}, $maxDistance: 200} }).toArray()
 
 Wilshire Pond Brook na Google Maps: [link](http://goo.gl/maps/MUJ16)
 
-![google-maps-selected-point-2](1e-selected-point-2.png)
+![google-maps-selected-point-2](./images/1e-selected-point-2.png)
 
 ####Zapytanie
 
@@ -296,7 +300,7 @@ var obszar = {
 
 Obszar na Google Maps:
 
-![google-maps-sampel-4](1e-selected-polygon.png)
+![google-maps-sampel-4](./images/1e-selected-polygon.png)
 
 ####Zapytanie
 
@@ -404,7 +408,7 @@ var linia = {
 
 Wybrana linia na Google Maps:
 
-![google-maps-selected-lineString](1e-selected-line.png)
+![google-maps-selected-lineString](./images/1e-selected-line.png)
 
 ####Zapytanie
 
@@ -424,8 +428,8 @@ db.geony.find({ loc : { $geoIntersects : { $geometry : linia } } }).toArray();
 
 ##Wyniki z MongoDB Management Service
 
-![mms-results-1](1e-mms-1.png)
+![mms-results-1](./images/1e-mms-1.png)
 
-![mms-results-1](1e-mms-2.png)
+![mms-results-1](./images/1e-mms-2.png)
 
 Dziękuję. Dobranoc.
