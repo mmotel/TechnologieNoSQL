@@ -75,4 +75,5 @@ Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.j
  * [The GeoJSON Format Specification](http://geojson.org/geojson-spec.html#geojson-objects)
  * [Geospatial Indexes and Queries](http://docs.mongodb.org/manual/applications/geospatial-indexes/)
  * [GeoJSONLint - Validate your GeoJSON](http://geojsonlint.com/)
+ * [geojson.io: Edit GeoJSON](http://geojson.io/)
  * [Aggregation Framework Examples (MongoDB, Javascript)](https://github.com/nosql/aggregations-2/blob/master/Aggregation-Framework-Examples-in-Javascript.md)
