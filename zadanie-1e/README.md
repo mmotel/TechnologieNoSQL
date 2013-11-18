@@ -300,6 +300,7 @@ var obszar = {
 
 Obszar na Google Maps:
 
+![google-maps-sampel-4](./images/1e-selected-polygon.png)
 ![google-maps-sampel-4](./images/1e-selected-polygon-2.png)
 
 ####Zapytanie
@@ -408,6 +409,7 @@ var linia = {
 
 Wybrana linia na Google Maps:
 
+![google-maps-selected-lineString](./images/1e-selected-line.png)
 ![google-maps-selected-lineString](./images/1e-selected-line-2.png)
 
 ####Zapytanie
