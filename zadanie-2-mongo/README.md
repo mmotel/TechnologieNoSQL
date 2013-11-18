@@ -79,6 +79,10 @@ switched to db imdb
 19831300
 ```
 
+##Aggregacje
+
+> Przykładowe aggregacje i zliczania: ilu jest różnych użytkowników w danych? jakie jest 10 najpopularniejszych filmów i przedstawień TV? ile jest różnych akcji?
+
 ##Wyniki z MongoDB Management Service
 
 ####Import
