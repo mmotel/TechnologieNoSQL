@@ -132,7 +132,7 @@ actions: 12
 ```sh
 real  4m21.954s
 user  0m0.048s
-sys 0m0.012s
+sys   0m0.012s
 ```
 
 ####Wykres
@@ -141,10 +141,22 @@ sys 0m0.012s
 
 ###Aggregacja 2
 
-***Jakie jest 10 najpopularnejszych słów w tytułach?***
+***Jakie jest 10 najpopularniejszych filmów i przedstawień TV?***
 
-Aggregacja powinna podzielić tytuły na słowa a następnie policzyć ile razy każde z nich występuje. 
+Aggregacja powinna wybrać filmy i przedstawienia TV a następnie policzyć ile razy każde z nich wystąpiło.
 
+####Kod aggregacji
+
+```js
+coll.aggregate(
+  { $match: { "modelName": "movies" || "tv_shows"  } },
+  { $group: {_id: "$title", count: {$sum: 1} } },
+  { $sort: {count: -1} },
+  { $limit: 10}
+);
+```
+
+Kod skryptu: [tutaj](./scripts/agg-2.js).
 
 ####Wynik
 
@@ -176,7 +188,7 @@ connecting to: imdb
 ```sh
 real  4m9.687s
 user  0m0.048s
-sys 0m0.016s
+sys   0m0.016s
 ```
 
 ##Wyniki z MongoDB Management Service
