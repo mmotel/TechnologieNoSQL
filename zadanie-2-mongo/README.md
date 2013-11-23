@@ -191,6 +191,10 @@ user  0m0.048s
 sys   0m0.016s
 ```
 
+####Wykres
+
+![aggregation-2-chart](./images/2-mongo-agg-2-chart.png)
+
 ##Wyniki z MongoDB Management Service
 
 ####Import
@@ -200,3 +204,7 @@ sys   0m0.016s
 ####Aggregacja 1
 
 ![mms-results](./images/2-mongo-agg-1-mms.png)
+
+####Aggregacja 2
+
+![mms-results](./images/2-mongo-agg-2-mms.png)
