@@ -97,7 +97,7 @@ coll.aggregate(
   { $sort: {count: -1} }
 );
 ```
-Kod skryptu: [tutaj](./scripts/agg-1.js)
+Kod skryptu: [tutaj](./scripts/agg-1.js).
 
 ####Wynik
 
@@ -138,6 +138,46 @@ sys 0m0.012s
 ####Wykres
 
 ![aggregation-1-chart](./images/2-mongo-agg-1-chart.png)
+
+###Aggregacja 2
+
+***Jakie jest 10 najpopularnejszych słów w tytułach?***
+
+Aggregacja powinna podzielić tytuły na słowa a następnie policzyć ile razy każde z nich występuje. 
+
+
+####Wynik
+
+```sh
+MongoDB shell version: 2.4.8
+connecting to: imdb
+```
+
+```json
+{
+  "result" : [
+    { "_id" : "The Twilight Saga: Breaking Dawn Part 1",       "count" : 87521 },
+    { "_id" : "The Hunger Games",                              "count" : 79340 },
+    { "_id" : "Marvel's The Avengers",                         "count" : 64356 },
+    { "_id" : "Harry Potter and the Deathly Hallows: Part II", "count" : 33680 },
+    { "_id" : "The Muppets",                                   "count" : 29002 },
+    { "_id" : "Captain America: The First Avenger",            "count" : 28406 },
+    { "_id" : "Avatar",                                        "count" : 23238 },
+    { "_id" : "Thor",                                          "count" : 23207 },
+    { "_id" : "The Hangover",                                  "count" : 22709 },
+    { "_id" : "Titanic",                                       "count" : 20791 }
+  ],
+  "ok" : 1
+}
+```
+
+####Czasy
+
+```sh
+real  4m9.687s
+user  0m0.048s
+sys 0m0.016s
+```
 
 ##Wyniki z MongoDB Management Service
 
