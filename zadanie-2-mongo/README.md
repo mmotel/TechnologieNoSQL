@@ -83,6 +83,50 @@ switched to db imdb
 
 > Przykładowe aggregacje i zliczania: ilu jest różnych użytkowników w danych? jakie jest 10 najpopularniejszych filmów i przedstawień TV? ile jest różnych akcji?
 
+###Aggregacja: `Ile jest różnych akcji?`
+
+```js
+coll.aggregate(
+  { $group: {_id: "$action", count: {$sum: 1}} },
+  { $sort: {count: -1} }
+);
+```
+Kod skryptu: [tutaj](./scripts/agg-1.js)
+
+####Wynik
+
+```sh
+MongoDB shell version: 2.4.8
+connecting to: imdb
+actions: 12
+```
+
+```json
+{
+  "result" : [
+    { "_id" : "Checkin",      "count" : 10958039 },
+    { "_id" : "Liked",        "count" : 7664733  },
+    { "_id" : "Disliked",     "count" : 469093   },
+    { "_id" : "Favorited",    "count" : 288096   },
+    { "_id" : "Unwanted",     "count" : 270330   },
+    { "_id" : "Saved",        "count" : 101944   },
+    { "_id" : "Said",         "count" : 73887    },
+    { "_id" : "Looked",       "count" : 2972     },
+    { "_id" : "Comment",      "count" : 2150     },
+    { "_id" : null,           "count" : 40       },
+    { "_id" : "Reply",        "count" : 15       },
+    { "_id" : "LikedComment", "count" : 1        }
+  ],
+  "ok" : 1
+}
+```
+
+```sh
+real  4m21.954s
+user  0m0.048s
+sys 0m0.012s
+```
+
 ##Wyniki z MongoDB Management Service
 
 ####Import
