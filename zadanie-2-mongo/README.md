@@ -123,6 +123,8 @@ actions: 12
 }
 ```
 
+####Czasy
+
 ```sh
 real  4m21.954s
 user  0m0.048s
@@ -134,3 +136,7 @@ sys 0m0.012s
 ####Import
 
 ![mms-results](./images/2-mongo-import-mms.png)
+
+####Aggregacja 1
+
+![mms-results](./images/2-mongo-agg-1-mms.png)
