@@ -131,6 +131,10 @@ user  0m0.048s
 sys 0m0.012s
 ```
 
+####Wykres
+
+![aggregation-1-chart](./images/2-mongo-agg-1-chart.png)
+
 ##Wyniki z MongoDB Management Service
 
 ####Import
