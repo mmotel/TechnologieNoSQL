@@ -83,7 +83,9 @@ switched to db imdb
 
 > Przykładowe aggregacje i zliczania: ilu jest różnych użytkowników w danych? jakie jest 10 najpopularniejszych filmów i przedstawień TV? ile jest różnych akcji?
 
-###Aggregacja: `Ile jest różnych akcji?`
+###Aggregacja 1
+
+> `Ile jest różnych akcji?`
 
 ```js
 coll.aggregate(
