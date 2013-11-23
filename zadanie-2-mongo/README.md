@@ -85,7 +85,7 @@ switched to db imdb
 
 ###Aggregacja 1
 
-> `Ile jest różnych akcji?`
+***Ile jest różnych akcji?***
 
 ```js
 coll.aggregate(
