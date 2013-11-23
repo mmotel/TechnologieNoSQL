@@ -1,0 +1,55 @@
+MongoDB shell version: 2.4.8
+connecting to: imdb
+{
+  "result" : [
+    {
+      "_id" : "Checkin",
+      "count" : 10958039
+    },
+    {
+      "_id" : "Liked",
+      "count" : 7664733
+    },
+    {
+      "_id" : "Disliked",
+      "count" : 469093
+    },
+    {
+      "_id" : "Favorited",
+      "count" : 288096
+    },
+    {
+      "_id" : "Unwanted",
+      "count" : 270330
+    },
+    {
+      "_id" : "Saved",
+      "count" : 101944
+    },
+    {
+      "_id" : "Said",
+      "count" : 73887
+    },
+    {
+      "_id" : "Looked",
+      "count" : 2972
+    },
+    {
+      "_id" : "Comment",
+      "count" : 2150
+    },
+    {
+      "_id" : null,
+      "count" : 40
+    },
+    {
+      "_id" : "Reply",
+      "count" : 15
+    },
+    {
+      "_id" : "LikedComment",
+      "count" : 1
+    }
+  ],
+  "ok" : 1
+}
