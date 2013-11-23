@@ -87,6 +87,10 @@ switched to db imdb
 
 ***Ile jest różnych akcji?***
 
+Aggregacja ma policzyć ile jest różnych akcji oraz ile razy każda z nich wystąpiła.
+
+####Kod aggregacji
+
 ```js
 coll.aggregate(
   { $group: {_id: "$action", count: {$sum: 1}} },
