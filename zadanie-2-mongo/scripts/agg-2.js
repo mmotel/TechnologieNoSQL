@@ -1,5 +1,4 @@
 // run: mongo imdb agg2.js
-// set or comment limit to set number of elements
 
 var coll = db.imdb;
 
