@@ -77,3 +77,4 @@ Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.j
  * [GeoJSONLint - Validate your GeoJSON](http://geojsonlint.com/)
  * [geojson.io: Edit GeoJSON](http://geojson.io/)
  * [Aggregation Framework Examples (MongoDB, Javascript)](https://github.com/nosql/aggregations-2/blob/master/Aggregation-Framework-Examples-in-Javascript.md)
+ * [JSONLint - The JSON Validator](http://jsonlint.com/) 
