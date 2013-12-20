@@ -30,18 +30,18 @@ Przykładowy dokument `json`:
 
 ##Import
 
-Do masowego importu danych do Elasticsearch'a użyjemy `[Bulk API](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html)`.  
+Do masowego importu danych do Elasticsearch'a użyjemy [`Bulk API`](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html).  
 
 ###Przygotowanie danych
 
 Bulk API wymaga "przeplatanych" JSON'ów o następującej strukturze:
 
-```json
+```js
 { "index": { "_type": "type name" } } //nazwa typu, do którego chcemy dodać dokument
 { "field": "content" ... } //dokument
 ```
 
-Do wygenerowania "przeplatanych" JSON'ów użyjemy programu `[jq](http://stedolan.github.io/jq/)`.
+Do wygenerowania "przeplatanych" JSON'ów użyjemy programu [`jq`](http://stedolan.github.io/jq/).
 
 ```sh
 cat getglue_examples.json | jq --compact-output '{ "index": { "_type": "imdb" } }, .' > getglue.bulk
