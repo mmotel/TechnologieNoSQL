@@ -46,3 +46,39 @@ Do wygenerowania "przeplatanych" JSON'ów użyjemy programu [`jq`](http://stedol
 ```sh
 cat getglue_examples.json | jq --compact-output '{ "index": { "_type": "imdb" } }, .' > getglue.bulk
 ```
+
+##Aggregacje
+
+Do wykonania aggregacji w Elasticsearch użyjemy [`wyszukiwania fasetowego`](http://en.wikipedia.org/wiki/Faceted_search) - [`facets search w ES`](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-facets.html).
+
+###Aggregacja 1
+
+***Dziesięciu najaktywniejszych użytkowików***
+
+Aggregacja ma policzyć ile akcji wykonał każdy z użytkowników i zwrócić dziesięciu najaktywniejszych.
+
+####Kod agregacji
+
+```sh
+curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '
+```
+
+```json
+{
+    "query" : {
+        "match_all" : {  }
+    },
+    "facets" : {
+        "userId" : {
+            "terms" : {
+                "field" : "userId",
+                "size" : 10
+            }
+        }
+    }
+}
+```
+
+```sh
+' | jq . > facets-1.js
+```
