@@ -54,8 +54,6 @@ Do wykonania aggregacji w Elasticsearch użyjemy [`wyszukiwania fasetowego`](htt
 Do wykonywania zapytań użyjemy programu [`curl`](http://pl.wikipedia.org/wiki/CURL):
 
 ```sh
-
-```sh
 curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '{ "query": { } }'
 ```
 
