@@ -51,17 +51,21 @@ cat getglue_examples.json | jq --compact-output '{ "index": { "_type": "imdb" } 
 
 Do wykonania aggregacji w Elasticsearch użyjemy [`wyszukiwania fasetowego`](http://en.wikipedia.org/wiki/Faceted_search) - [`facets search w ES`](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-facets.html).
 
+Do wykonywania zapytań użyjemy programu [`curl`](http://pl.wikipedia.org/wiki/CURL):
+
+```sh
+
+```sh
+curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '{ "query": { } }'
+```
+
 ###Aggregacja 1
 
 ***Dziesięciu najaktywniejszych użytkowików***
 
 Aggregacja ma policzyć ile akcji wykonał każdy z użytkowników i zwrócić dziesięciu najaktywniejszych.
 
-####Kod agregacji
-
-```sh
-curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '
-```
+####Kod aggregacji
 
 ```json
 {
@@ -79,6 +83,26 @@ curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '
 }
 ```
 
-```sh
-' | jq . > facets-1.js
+###Aggregacja 2
+
+***Aktywność użytkowników według miesięcy***
+
+Aggregacja ma policzyć ile akcji wykonali użytkownicy w ciągu kolejnych miesięcy.
+
+####Kod aggregacji
+
+```json
+{
+    "query" : {
+        "match_all" : {}
+    },
+    "facets" : {
+        "histo1" : {
+            "date_histogram" : {
+                "field" : "timestamp",
+                "interval" : "month"
+            }
+        }
+    }
+}
 ```
