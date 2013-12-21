@@ -118,8 +118,18 @@ split -l 200000 getglue_sample.bulk
 A następnie dokonujemy importu w pętli:
 
 ```sh
-
+time for i in x*; do curl -s -XPOST   localhost:9200/data/_bulk --data-binary @$i; done
 ```
+
+####Wynik
+
+```sh
+real  232m8.668s
+user  0m14.270s
+sys   1m10.368s
+```
+
+W czasie `232m8.668s` (`~3h52m`) zaimportowało `19 766 542` obiektów. Co daje średnio `1419` insertów na sekundę. ***Czemu tak wolno?***
 
 ###Aggregacja 1
 
