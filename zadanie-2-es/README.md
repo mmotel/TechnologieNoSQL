@@ -404,4 +404,8 @@ user  0m0.008s
 sys   0m0.017s
 ```
 
-####Wykres
+####Wykresy
+
+![facets search 2 chart 1](./images/2-es-facets-2-chart-1.png)
+
+![facets search 2 chart 2](./images/2-es-facets-2-chart-2.png)
