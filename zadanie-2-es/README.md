@@ -44,7 +44,7 @@ Bulk API wymaga "przeplatanych" JSON'ów o następującej strukturze:
 Do wygenerowania "przeplatanych" JSON'ów użyjemy programu [`jq`](http://stedolan.github.io/jq/).
 
 ```sh
-cat getglue_examples.json | jq --compact-output '{ "index": { "_type": "imdb" } }, .' > getglue.bulk
+time cat getglue_sample.json | jq --compact-output '{ "index": { "_type": "imdb" } }, .' > getglue_sample.bulk
 ```
 
 ##Aggregacje
