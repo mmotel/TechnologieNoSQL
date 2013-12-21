@@ -218,7 +218,11 @@ user  0m0.009s
 sys   0m0.012s
 ```
 
-####Wykres
+####Wykresy
+
+![facets search 1 chart 1](./images/2-es-facets-1-chart-1.png)
+
+![facets search 1 chart 2](./images/2-es-facets-1-chart-2.png)
 
 ###Aggregacja 2
 
