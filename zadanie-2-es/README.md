@@ -123,7 +123,7 @@ curl -XGET 'http://localhost:9200/data/imdb/_count' ; echo
 {"count":19766542,"_shards":{"total":1,"successful":1,"failed":0}}
 ```
 
-Zaimportowało się `19 766 542`. Brakuje `64758` obiektów. Jak wynika z logu importu spowodowane jest to niepoprawnym formatem daty, co skutkowało odrzuceniem obiektu.
+Zaimportowało się `19 766 542`. Brakuje `64 758` obiektów. Jak wynika z logu importu spowodowane jest to niepoprawnym formatem daty, co skutkowało odrzuceniem obiektu.
 
 ####Czas
 
@@ -133,7 +133,7 @@ user  0m14.270s
 sys   1m10.368s
 ```
 
-W czasie `232m8.668s` (`~3h52m`) zaimportowało `19 766 542` obiektów. Co daje średnio `1419` insertów na sekundę. ***Czemu tak wolno?***
+W czasie `232m8.668s` (`~3h52m`) zaimportowało `19 766 542` obiektów. Co daje średnio `1 419` insertów na sekundę. ***Czemu tak wolno?***
 
 ##Aggregacje
 
@@ -176,46 +176,16 @@ Aggregacja ma policzyć ile akcji wykonał każdy z użytkowników i zwrócić d
   "facets": {
     "userId": {
       "terms": [
-        {
-          "count": 696750,
-          "term": "lukewilliamss"
-        },
-        {
-          "count": 68131,
-          "term": "demi_konti"
-        },
-        {
-          "count": 59257,
-          "term": "bangwid"
-        },
-        {
-          "count": 56044,
-          "term": "zenofmac"
-        },
-        {
-          "count": 55736,
-          "term": "agentdunham"
-        },
-        {
-          "count": 43153,
-          "term": "cillax"
-        },
-        {
-          "count": 42299,
-          "term": "tamtomo"
-        },
-        {
-          "count": 32824,
-          "term": "hblackwood"
-        },
-        {
-          "count": 32237,
-          "term": "ellen_turner"
-        },
-        {
-          "count": 32133,
-          "term": "husainholic"
-        }
+        { "count": 696750, "term": "lukewilliamss" },
+        { "count": 68131,  "term": "demi_konti"    },
+        { "count": 59257,  "term": "bangwid"       },
+        { "count": 56044,  "term": "zenofmac"      },
+        { "count": 55736,  "term": "agentdunham"   },
+        { "count": 43153,  "term": "cillax"        },
+        { "count": 42299,  "term": "tamtomo"       },
+        { "count": 32824,  "term": "hblackwood"    },
+        { "count": 32237,  "term": "ellen_turner"  },
+        { "count": 32133,  "term": "husainholic"   }
       ],
       "other": 18648036,
       "total": 19766600,
