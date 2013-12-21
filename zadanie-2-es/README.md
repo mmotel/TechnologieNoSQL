@@ -89,16 +89,6 @@ sys   1m24.807s
 
 W ciągu `30m34.117s` wygenerowało się `39 662 600` dokumentów JSON. Co średnio daje `~21 626` wygenerowanych dokumentów JSON na sekundę.
 
-##Aggregacje
-
-Do wykonania aggregacji w Elasticsearch użyjemy [`wyszukiwania fasetowego`](http://en.wikipedia.org/wiki/Faceted_search) - [`facets search w ES`](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-facets.html).
-
-Do wykonywania zapytań użyjemy programu [`curl`](http://pl.wikipedia.org/wiki/CURL):
-
-```sh
-curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '{ "query": { } }'
-```
-
 ##Import
 
 Próba wykonania importu całego pliku `getglue_sample.bulk` (`39 662 600` JSON'ów, `11,3 GB`) konczy się niepowodzeniem.
@@ -123,6 +113,20 @@ time for i in x*; do curl -s -XPOST   localhost:9200/data/_bulk --data-binary @$
 
 ####Wynik
 
+Sprawdzamy ile obiektów zostało zapisanych w bazie.
+
+```sh
+curl -XGET 'http://localhost:9200/data/imdb/_count' ; echo
+```
+
+```json
+{"count":19766542,"_shards":{"total":1,"successful":1,"failed":0}}
+```
+
+Zaimportowało się `19 766 542`. Brakuje `64758` obiektów. Jak wynika z logu importu spowodowane jest to niepoprawnym formatem daty, co skutkowało odrzuceniem obiektu.
+
+####Czas
+
 ```sh
 real  232m8.668s
 user  0m14.270s
@@ -130,6 +134,16 @@ sys   1m10.368s
 ```
 
 W czasie `232m8.668s` (`~3h52m`) zaimportowało `19 766 542` obiektów. Co daje średnio `1419` insertów na sekundę. ***Czemu tak wolno?***
+
+##Aggregacje
+
+Do wykonania aggregacji w Elasticsearch użyjemy [`wyszukiwania fasetowego`](http://en.wikipedia.org/wiki/Faceted_search) - [`facets search w ES`](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-facets.html).
+
+Do wykonywania zapytań użyjemy programu [`curl`](http://pl.wikipedia.org/wiki/CURL):
+
+```sh
+curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '{ "query": { } }'
+```
 
 ###Aggregacja 1
 
