@@ -322,3 +322,80 @@ Aggregacja ma policzyć ile akcji wykonali użytkownicy w ciągu kolejnych miesi
 }
 ```
 
+***Czym są liczby w polu `time`?*** Jak można się domyślić to czas. A jak można przeczytać w dokumentacji typu `Date` w `JavaScript` jest to `the number of milliseconds since midnight Jan 1, 1970`. Aby zaprezentować wynik w bardziej czytelnej formie użyjemy skryptu do przeczlienia czasu na konkretne daty.
+
+```js
+for(var i = 0; i < entries.length; i++){
+  entries[i].time = new Date(entries[i].time);
+  entries[i].time = (entries[i].time.getUTCMonth()+1) + "." + entries[i].time.getUTCFullYear();
+};
+```
+
+Cały skrypt: [tutaj]().
+
+Wynik aggregacji po konwersji dat:
+
+```js
+[ { count: 1,       time: '12.2006' },
+  { count: 2,       time: '1.2007'  },
+  { count: 2,       time: '2.2007'  },
+  { count: 1,       time: '3.2007'  },
+  { count: 1,       time: '4.2007'  },
+  { count: 1,       time: '12.2007' },
+  { count: 1,       time: '6.2008'  },
+  { count: 2,       time: '7.2008'  },
+  { count: 19,      time: '8.2008'  },
+  { count: 28,      time: '9.2008'  },
+  { count: 128,     time: '10.2008' },
+  { count: 294,     time: '11.2008' },
+  { count: 115,     time: '12.2008' },
+  { count: 282,     time: '1.2009'  },
+  { count: 119,     time: '2.2009'  },
+  { count: 218,     time: '3.2009'  },
+  { count: 344,     time: '4.2009'  },
+  { count: 389,     time: '5.2009'  },
+  { count: 586,     time: '6.2009'  },
+  { count: 808,     time: '7.2009'  },
+  { count: 2301,    time: '8.2009'  },
+  { count: 2748,    time: '9.2009'  },
+  { count: 8904,    time: '10.2009' },
+  { count: 16751,   time: '11.2009' },
+  { count: 43289,   time: '12.2009' },
+  { count: 34958,   time: '1.2010'  },
+  { count: 32006,   time: '2.2010'  },
+  { count: 65592,   time: '3.2010'  },
+  { count: 51768,   time: '4.2010'  },
+  { count: 51585,   time: '5.2010'  },
+  { count: 85401,   time: '6.2010'  },
+  { count: 199294,  time: '7.2010'  },
+  { count: 256512,  time: '8.2010'  },
+  { count: 312460,  time: '9.2010'  },
+  { count: 304326,  time: '10.2010' },
+  { count: 362662,  time: '11.2010' },
+  { count: 302035,  time: '12.2010' },
+  { count: 496329,  time: '1.2011'  },
+  { count: 428525,  time: '2.2011'  },
+  { count: 441130,  time: '3.2011'  },
+  { count: 538690,  time: '4.2011'  },
+  { count: 630517,  time: '5.2011'  },
+  { count: 700685,  time: '6.2011'  },
+  { count: 954233,  time: '7.2011'  },
+  { count: 947335,  time: '8.2011'  },
+  { count: 1148994, time: '9.2011'  },
+  { count: 1503366, time: '10.2011' },
+  { count: 1810790, time: '11.2011' },
+  { count: 1088950, time: '12.2011' },
+  { count: 1145836, time: '1.2012'  },
+  { count: 1382174, time: '2.2012'  },
+  { count: 1643917, time: '3.2012'  },
+  { count: 1687831, time: '4.2012'  },
+  { count: 1081307, time: '5.2012'  } ]
+```
+
+####Czas
+
+```sh
+real  0m11.661s
+user  0m0.008s
+sys   0m0.017s
+```
