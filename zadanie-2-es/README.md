@@ -28,11 +28,9 @@ Przykładowy dokument `json`:
 }
 ```
 
-##Import
+##Przygotowanie danych do importu
 
 Do masowego importu danych do Elasticsearch'a użyjemy [`Bulk API`](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html).  
-
-###Przygotowanie danych
 
 Bulk API wymaga "przeplatanych" JSON'ów o następującej strukturze:
 
