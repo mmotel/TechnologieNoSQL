@@ -99,6 +99,28 @@ Do wykonywania zapytań użyjemy programu [`curl`](http://pl.wikipedia.org/wiki/
 curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '{ "query": { } }'
 ```
 
+##Import
+
+Próba wykonania importu całego pliku `getglue_sample.bulk` (`39 662 600` JSON'ów, `11,3 GB`) konczy się niepowodzeniem.
+
+```sh
+curl -s -XPOST localhost:9200/data/_bulk --data-binary @getglue_sample.bulk
+```
+
+Po pierwsze polecenie `curl` próbuje wczytać cały plik do pamięci. Po drugie baza danych najprawdopodobniej nie jest w stanie przyjąć tak dużej ilości danych na raz, rzuca `TooLongFrameException`.
+
+Aby rozwiązać oba te problemy dzielimy plik na części po `200 000` linii czyli `100 000` dokumnetów do dodoania.
+
+```sh
+split -l 200000 getglue_sample.bulk
+```
+
+A następnie dokonujemy importu w pętli:
+
+```sh
+
+```
+
 ###Aggregacja 1
 
 ***Dziesięciu najaktywniejszych użytkowików***
