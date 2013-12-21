@@ -169,6 +169,8 @@ Aggregacja ma policzyć ile akcji wykonał każdy z użytkowników i zwrócić d
 }
 ```
 
+Skrypt: [tutaj]()
+
 ####Wynik
 
 ```json
@@ -206,6 +208,8 @@ Aggregacja ma policzyć ile akcji wykonał każdy z użytkowników i zwrócić d
 }
 ```
 
+Pełny wynik aggregacji: [tutaj]()
+
 ####Czas
 
 ```sh
@@ -213,6 +217,8 @@ real  0m6.027s
 user  0m0.009s
 sys   0m0.012s
 ```
+
+####Wykres
 
 ###Aggregacja 2
 
