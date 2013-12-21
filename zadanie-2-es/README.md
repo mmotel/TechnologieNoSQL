@@ -399,3 +399,5 @@ real  0m11.661s
 user  0m0.008s
 sys   0m0.017s
 ```
+
+####Wykres
