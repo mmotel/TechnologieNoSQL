@@ -169,6 +169,81 @@ Aggregacja ma policzyć ile akcji wykonał każdy z użytkowników i zwrócić d
 }
 ```
 
+####Wynik
+
+```json
+{
+  "facets": {
+    "userId": {
+      "terms": [
+        {
+          "count": 696750,
+          "term": "lukewilliamss"
+        },
+        {
+          "count": 68131,
+          "term": "demi_konti"
+        },
+        {
+          "count": 59257,
+          "term": "bangwid"
+        },
+        {
+          "count": 56044,
+          "term": "zenofmac"
+        },
+        {
+          "count": 55736,
+          "term": "agentdunham"
+        },
+        {
+          "count": 43153,
+          "term": "cillax"
+        },
+        {
+          "count": 42299,
+          "term": "tamtomo"
+        },
+        {
+          "count": 32824,
+          "term": "hblackwood"
+        },
+        {
+          "count": 32237,
+          "term": "ellen_turner"
+        },
+        {
+          "count": 32133,
+          "term": "husainholic"
+        }
+      ],
+      "other": 18648036,
+      "total": 19766600,
+      "missing": 0,
+      "_type": "terms"
+    }
+  },
+  "hits": {
+    //...
+  },
+  "_shards": {
+    "failed": 0,
+    "successful": 1,
+    "total": 1
+  },
+  "timed_out": false,
+  "took": 6391
+}
+```
+
+####Czas
+
+```sh
+real  0m6.027s
+user  0m0.009s
+sys   0m0.012s
+```
+
 ###Aggregacja 2
 
 ***Aktywność użytkowników według miesięcy***
