@@ -48,6 +48,49 @@ time cat getglue_sample.json | jq --compact-output '{ "index": { "_type": "imdb"
   > getglue_sample.bulk
 ```
 
+####Wynik
+
+Otrzymujemy "przeplatane" JSON'y:
+
+```json
+{
+  "index": {
+    "_type": "imdb"
+  }
+}
+{
+  "objectKey": "tv_shows/criminal_minds",
+  "hideVisits": "false",
+  "modelName": "tv_shows",
+  "displayName": "",
+  "title": "Criminal Minds",
+  "timestamp": "2008-08-01T06:58:14Z",
+  "image": "http://cdn-1.nflximg.com/us/boxshots/large/70056671.jpg",
+  "userId": "areilly",
+  "visitCount": "1",
+  "comment": "",
+  "private": "false",
+  "source": "http://www.netflix.com/Movie/Criminal_Minds_Season_1/70056671",
+  "version": "2",
+  "link": "http://www.netflix.com/Movie/Criminal_Minds_Season_1/70056671",
+  "lastModified": "2011-12-16T19:41:19Z",
+  "action": "Liked",
+  "lctitle": "criminal minds"
+}
+```
+
+Plik `getglue_sample.bulk` zawiera łącznie `39 662 600` dokumentów JSON.
+
+####Czas
+
+```sh
+real  30m34.117s
+user  26m9.324s
+sys   1m24.807s
+```
+
+W ciągu `30m34.117s` wygenerowało się `39 662 600` dokumentów JSON. Co średnio daje `~21 626` wygenerowanych dokumentów JSON na sekundę.
+
 ##Aggregacje
 
 Do wykonania aggregacji w Elasticsearch użyjemy [`wyszukiwania fasetowego`](http://en.wikipedia.org/wiki/Faceted_search) - [`facets search w ES`](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-facets.html).
