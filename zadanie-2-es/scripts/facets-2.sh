@@ -1,9 +1,9 @@
 #ES facets search
 #run : ./facets-1.sh
 
-#aggregation 1
+#aggregation 2
 
-#top 10 users by activity
+#users activity by months
 
 curl -X POST "http://localhost:9200/data/_search?pretty=true" -d '
 {
