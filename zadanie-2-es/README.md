@@ -330,6 +330,17 @@ Skrypt: [tutaj](./scripts/facets-2.sh).
 
 Pełny wynik aggregacji: [tutaj](./docs/facets-result-2.json).
 
+
+####Czas
+
+```sh
+real  0m11.661s
+user  0m0.008s
+sys   0m0.017s
+```
+
+####Konwersja dat
+
 ***Czym są liczby w polu `time`?*** Jak można się domyślić to czas. A jak można przeczytać w dokumentacji typu `Date` w `JavaScript` jest to `the number of milliseconds since midnight Jan 1, 1970`. Aby zaprezentować wynik w bardziej czytelnej formie użyjemy skryptu do przeczlienia czasu na konkretne daty.
 
 ```js
@@ -398,14 +409,6 @@ Wynik aggregacji po konwersji dat:
   { count: 1643917, time: '3.2012'  },
   { count: 1687831, time: '4.2012'  },
   { count: 1081307, time: '5.2012'  } ]
-```
-
-####Czas
-
-```sh
-real  0m11.661s
-user  0m0.008s
-sys   0m0.017s
 ```
 
 ####Wykresy
