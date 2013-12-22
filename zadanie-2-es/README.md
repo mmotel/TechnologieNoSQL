@@ -208,7 +208,7 @@ Skrypt: [tutaj](./scripts/facets-1.sh).
 }
 ```
 
-Pełny wynik aggregacji: [tutaj](./docs/facets-result-1.json).
+Pełny wynik aggregacji: [tutaj](./data/facets-result-1.json).
 
 ####Czas
 
@@ -328,7 +328,7 @@ Skrypt: [tutaj](./scripts/facets-2.sh).
 }
 ```
 
-Pełny wynik aggregacji: [tutaj](./docs/facets-result-2.json).
+Pełny wynik aggregacji: [tutaj](./data/facets-result-2.json).
 
 
 ####Czas
