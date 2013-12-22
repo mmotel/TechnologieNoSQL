@@ -1,4 +1,4 @@
-// run: node dataConvert.js > converted.out
+// run: node convert-dates.js > converted.out
 
 var entries = [
         {
