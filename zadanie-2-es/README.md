@@ -208,7 +208,7 @@ Skrypt: [tutaj](./scripts/facets-1.sh).
 }
 ```
 
-Pełny wynik aggregacji: [tutaj](./docs/facets-result-1.js).
+Pełny wynik aggregacji: [tutaj](./docs/facets-result-1.json).
 
 ####Czas
 
@@ -248,7 +248,7 @@ Aggregacja ma policzyć ile akcji wykonali użytkownicy w ciągu kolejnych miesi
 }
 ```
 
-Skrypt: [tutaj](./scripts/facets-2.sh)
+Skrypt: [tutaj](./scripts/facets-2.sh).
 
 ####Wynik
 
@@ -328,7 +328,7 @@ Skrypt: [tutaj](./scripts/facets-2.sh)
 }
 ```
 
-Pełny wynik aggregacji: [tutaj](./docs/facets-result-2.js)
+Pełny wynik aggregacji: [tutaj](./docs/facets-result-2.json).
 
 ***Czym są liczby w polu `time`?*** Jak można się domyślić to czas. A jak można przeczytać w dokumentacji typu `Date` w `JavaScript` jest to `the number of milliseconds since midnight Jan 1, 1970`. Aby zaprezentować wynik w bardziej czytelnej formie użyjemy skryptu do przeczlienia czasu na konkretne daty.
 
