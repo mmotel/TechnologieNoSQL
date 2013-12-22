@@ -1,5 +1,5 @@
 #ES facets search
-#run : ./facets-1.sh
+#run : ./facets-2.sh
 
 #aggregation 2
 
