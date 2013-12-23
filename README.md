@@ -29,7 +29,7 @@ Technologie noSQL - `laboratoria`
 #####Rozwiązania
 
  * [MongoDB](./zadanie-2-mongo)
- * Elasticsearch
+ * [Elasticsearch](./zadanie-2-es)
 
 ***
 
