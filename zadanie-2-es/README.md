@@ -79,7 +79,7 @@ Otrzymujemy "przeplatane" JSON'y:
 
 Plik `getglue_sample.bulk` zawiera łącznie `39 662 600` dokumentów JSON.
 
-####Czas
+####Czasy
 
 ```sh
 real  30m34.117s
@@ -125,7 +125,7 @@ curl -XGET 'http://localhost:9200/data/imdb/_count' ; echo
 
 Zaimportowało się `19 766 542`. Brakuje `64 758` obiektów. Jak wynika z logu importu spowodowane jest to niepoprawnym formatem daty, co skutkowało odrzuceniem obiektu.
 
-####Czas
+####Czasy
 
 ```sh
 real  232m8.668s
@@ -133,7 +133,7 @@ user  0m14.270s
 sys   1m10.368s
 ```
 
-W czasie `232m8.668s` (`~3h52m`) zaimportowało `19 766 542` obiektów. Co daje średnio `1 419` insertów na sekundę. ***Czemu tak wolno?***
+W czasie `232m8.668s` (`~3h52m`) zaimportowało `19 766 542` obiektów. Co daje średnio `~1 419` insertów na sekundę. ***Czemu tak wolno?***
 
 ##Aggregacje
 
@@ -210,7 +210,7 @@ Skrypt: [tutaj](./scripts/facets-1.sh).
 
 Pełny wynik aggregacji: [tutaj](./data/facets-result-1.json).
 
-####Czas
+####Czasy
 
 ```sh
 real  0m6.027s
@@ -331,7 +331,7 @@ Skrypt: [tutaj](./scripts/facets-2.sh).
 Pełny wynik aggregacji: [tutaj](./data/facets-result-2.json).
 
 
-####Czas
+####Czasy
 
 ```sh
 real  0m11.661s
