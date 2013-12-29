@@ -11,6 +11,7 @@ Technologie noSQL - `laboratoria`
 ####Instalacje
 
 * [MongoDB na Ubuntu](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
+* [Elasticsearch na Ubuntu](https://github.com/mmotel/ubu-set-up/blob/master/Elasticsearch.md)
 
 ***
 
@@ -28,8 +29,8 @@ Technologie noSQL - `laboratoria`
 
 #####Rozwiązania
 
- * [MongoDB](./zadanie-2-mongo)
- * [Elasticsearch](./zadanie-2-es)
+ * [MongoDB](./zadanie-2-mongo) `-->` [MongoDB-Aggregations](https://github.com/mmotel/mongodb-aggregations)
+ * [Elasticsearch](./zadanie-2-es) `-->` [ES-Facets](https://github.com/mmotel/es-facets)
 
 ***
 
