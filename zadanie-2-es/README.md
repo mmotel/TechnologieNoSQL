@@ -110,6 +110,7 @@ A następnie dokonujemy importu w pętli:
 ```sh
 time for i in x*; do curl -s -XPOST localhost:9200/data/_bulk --data-binary @$i > /dev/null; echo $i; done
 ```
+
 ####Wynik
 
 Sprawdzamy ile obiektów zostało zapisanych w bazie.
@@ -133,7 +134,7 @@ sys   0m28.627s
 
 ```
 
-W czasie `165m45.252s` (`~2h45m`) zaimportowało `19 766 542` obiektów. Co daje średnio `~1 419` insertów na sekundę. ***Czemu (nadal) tak wolno?***
+W czasie `165m45.252s` (`~2h45m`) zaimportowało `19 766 542` obiektów. Co daje średnio `~1 987` insertów na sekundę. ***Czemu (nadal) tak wolno?***
 
 ##Aggregacje
 
