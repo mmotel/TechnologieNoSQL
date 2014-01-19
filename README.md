@@ -15,6 +15,14 @@ Technologie noSQL - `laboratoria`
 
 ***
 
+###*Zadanie 3*
+
+Przygotować funkcje `map` oraz `reduce` w `MongoDB` lub `CouchDB`. Dla danych zapisanych w `Elasticsearch` przygotować `faceted search`.
+
+#####Rozwiązania
+
+* [MongoDB](./zadanie-3-mongo)
+
 ###*Zadanie 2*
 
 1. Wyszukać w sieci dane zawierające co najmniej `1 000 000` rekordów/jsonów.
