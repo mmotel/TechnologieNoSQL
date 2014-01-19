@@ -185,18 +185,24 @@ db.wcdocs.mapReduce(m2, r2, {out: "wc"});
 db.wc.find().sort({value: -1}).limit(10);
 ```
 
+#####Wynik
+
 ```json
-{ "_id" : "to",   "value" : 281389 }
-{ "_id" : "in",   "value" : 243858 }
-{ "_id" : "a",    "value" : 200548 }
-{ "_id" : "how",  "value" : 180957 }
-{ "_id" : "the",  "value" : 125759 }
-{ "_id" : "of",   "value" : 110290 }
-{ "_id" : "with", "value" : 104258 }
-{ "_id" : "and",  "value" : 99115  }
-{ "_id" : "for",  "value" : 86233  }
-{ "_id" : "on",   "value" : 84930  }
+  { "_id" : "to",   "value" : 281389 }
+  { "_id" : "in",   "value" : 243858 }
+  { "_id" : "a",    "value" : 200548 }
+  { "_id" : "how",  "value" : 180957 }
+  { "_id" : "the",  "value" : 125759 }
+  { "_id" : "of",   "value" : 110290 }
+  { "_id" : "with", "value" : 104258 }
+  { "_id" : "and",  "value" : 99115  }
+  { "_id" : "for",  "value" : 86233  }
+  { "_id" : "on",   "value" : 84930  }
 ```
+
+#####Wykres
+
+![3-mongo-map-reduce-res-review-1](./images/3-mongo-mp-1.png)
 
 ####10 najpopularniejszych języków
 
@@ -221,8 +227,9 @@ db.wc.find({
 }).sort({"value": -1});
 ```
 
+#####Wynik
+
 ```json
-[
   { "_id" : "php",        "value" : 29498 },
   { "_id" : "java",       "value" : 24642 },
   { "_id" : "javascript", "value" : 19711 },
@@ -233,8 +240,12 @@ db.wc.find({
   { "_id" : "c++",        "value" : 11528 },
   { "_id" : "c",          "value" : 9096  },
   { "_id" : "ruby",       "value" : 6097  }
-]
 ```
+
+#####Wykres
+
+![3-mongo-map-reduce-res-review-2](./images/3-mongo-mp-2.png)
+
 
 ####Popularne systemy operacyjne
 
@@ -246,24 +257,24 @@ db.wc.find({
     "ios",
     "windows",
     "linux",
-    "windows-7",
     "osx",
-    "ubuntu",
-    "windows-xp"
+    "ubuntu"
     ] 
   }
 }).sort({"value": -1});
 ```
 
-```json
-[   
+#####Wynik
+
+```json 
   { "_id" : "android",    "value" : 28375 },
   { "_id" : "windows",    "value" : 25059 },
   { "_id" : "linux",      "value" : 8502  },
   { "_id" : "ios",        "value" : 7253  },
   { "_id" : "ubuntu",     "value" : 4674  },
-  { "_id" : "osx",        "value" : 1331  },
-  { "_id" : "windows-7",  "value" : 26    },
-  { "_id" : "windows-xp", "value" : 5     }
-]
+  { "_id" : "osx",        "value" : 1331  }
 ```
+
+#####Wykres
+
+![3-mongo-map-reduce-res-review-3](./images/3-mongo-mp-3.png)
