@@ -127,7 +127,7 @@ db.train1.mapReduce(m, r, {out: "wcdocs"});
 
 ###MapReduce 2
 
-Dla każdego dokumentu z kolejci `wcdocs`, które mają postać:
+Dla każdego dokumentu z kolekcji `wcdocs`, które mają postać:
 
 ```json
 { "_id" : { "word" : "#", "id" : 5034944 }, "value" : 1 }
@@ -179,3 +179,91 @@ db.wcdocs.mapReduce(m2, r2, {out: "wc"});
 
 ###Przegląd wyniku
 
+####10 najpopularniejszych słów
+
+```js
+db.wc.find().sort({value: -1}).limit(10);
+```
+
+```json
+{ "_id" : "to",   "value" : 281389 }
+{ "_id" : "in",   "value" : 243858 }
+{ "_id" : "a",    "value" : 200548 }
+{ "_id" : "how",  "value" : 180957 }
+{ "_id" : "the",  "value" : 125759 }
+{ "_id" : "of",   "value" : 110290 }
+{ "_id" : "with", "value" : 104258 }
+{ "_id" : "and",  "value" : 99115  }
+{ "_id" : "for",  "value" : 86233  }
+{ "_id" : "on",   "value" : 84930  }
+```
+
+####10 najpopularniejszych języków
+
+Języki zostały wybrane na podstawie tagów.
+
+```js
+db.wc.find({
+  _id: {
+    $in: [ 
+    "c#", 
+    "java", 
+    "php", 
+    "javascript", 
+    "c++", 
+    "python", 
+    "sql", 
+    "html", 
+    "c", 
+    "ruby"
+    ] 
+  }
+}).sort({"value": -1});
+```
+
+```json
+[
+  { "_id" : "php",        "value" : 29498 },
+  { "_id" : "java",       "value" : 24642 },
+  { "_id" : "javascript", "value" : 19711 },
+  { "_id" : "sql",        "value" : 19238 },
+  { "_id" : "c#",         "value" : 18899 },
+  { "_id" : "python",     "value" : 14990 },
+  { "_id" : "html",       "value" : 12790 },
+  { "_id" : "c++",        "value" : 11528 },
+  { "_id" : "c",          "value" : 9096  },
+  { "_id" : "ruby",       "value" : 6097  }
+]
+```
+
+####Popularne systemy operacyjne
+
+```js
+db.wc.find({
+  _id: {
+    $in: [ 
+    "android",
+    "ios",
+    "windows",
+    "linux",
+    "windows-7",
+    "osx",
+    "ubuntu",
+    "windows-xp"
+    ] 
+  }
+}).sort({"value": -1});
+```
+
+```json
+[   
+  { "_id" : "android",    "value" : 28375 },
+  { "_id" : "windows",    "value" : 25059 },
+  { "_id" : "linux",      "value" : 8502  },
+  { "_id" : "ios",        "value" : 7253  },
+  { "_id" : "ubuntu",     "value" : 4674  },
+  { "_id" : "osx",        "value" : 1331  },
+  { "_id" : "windows-7",  "value" : 26    },
+  { "_id" : "windows-xp", "value" : 5     }
+]
+```
