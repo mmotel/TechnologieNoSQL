@@ -1,5 +1,12 @@
 #Zadanie 3 - MongoDB
 
+##Spis treści
+
+* [Dane](#dane)
+* [Import](#import)
+* [MapReduce](#mappeduce)
+* [Przegląd wyniku](#przegl%C4%85d-wyniku)
+
 ##Dane
 
 Skorzystamy z danych udostępnionych na ten konkurs [Identify keywords and tags from millions of text questions](https://www.kaggle.com/c/facebook-recruiting-iii-keyword-extraction) przez [Stack Exchange](http://stackexchange.com/):
