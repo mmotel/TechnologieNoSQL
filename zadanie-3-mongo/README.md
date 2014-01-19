@@ -69,9 +69,31 @@ W ciągu `1m44.356s` zaimportował się `1 000 000` rekordów, co daje `~9615` i
 
 ###MapReduce 1
 
+####Kod funkcji Map oraz Reduce
+
+```js
+var m = function (){
+  var that = this;
+  var tab = this.Title.match(/[\w\-\+\#]+/g);//A-Za-z
+  if(tab !== null){
+    tab.forEach(function(word) {
+      emit({"word": word.toLowerCase(), "id": that.Id}, 1);
+    });
+  }
+};
+
+var r = function (key, values){
+  return Array.sum(values);
+};
+```
+
+####Wykonanie
+
 ```js
 db.train1.mapReduce(m, r, {out: "wcdocs"});
 ```
+
+####Wynik
 
 ```json
 {
@@ -89,9 +111,25 @@ db.train1.mapReduce(m, r, {out: "wcdocs"});
 
 ###MapReduce 2
 
+####Kod funkcji Map oraz Reduce
+
+```js
+var m2 = function (){
+  emit(this._id.word, 1);
+};
+
+var r2 = function (key, values){
+  return Array.sum(values);
+};
+```
+
+####Wykonanie
+
 ```js
 db.wcdocs.mapReduce(m2, r2, {out: "wc"});
 ```
+
+####Wynik
 
 ```json
 {
