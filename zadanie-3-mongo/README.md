@@ -61,13 +61,29 @@ user  0m29.771s
 sys   0m2.286s
 ```
 
-W ciągu `1m44.356s` zaimportował się `1 000 000` rekordów, co daje `~9615` insertów do bazy na sekundę.
+W ciągu `1m44.356s` zaimportował się `1 000 000` rekordów, co daje `~9 615` insertów do bazy na sekundę.
 
 ##MapReduce
 
 ###Opis
 
+*W tytułach ilu dokumentów występują konkretne słowa?*
+
+Dla każdego słowa występującego w `tytule` chcemy policzyć w ilu dokumentach to słowo występuje.
+
+Aby to policzyć użyjemy podwójnego MapReduce. 
+
 ###MapReduce 1
+
+Dla każdego słowa z `tytułu` dokumentu `emitujemy` klucz będący parą wartości `{słowo, id dokumentu}`. 
+
+Spodziewamy się rekordów postaci:
+
+```json
+{ "_id" : { "word" : "#", "id" : 5034944 }, "value" : 1 }
+```
+
+Czyli każdy rekord zawiera ilość wystąpień danego słowa w danym dokumencie (tytule).
 
 ####Kod funkcji Map oraz Reduce
 
@@ -111,6 +127,22 @@ db.train1.mapReduce(m, r, {out: "wcdocs"});
 
 ###MapReduce 2
 
+Dla każdego dokumentu z kolejci `wcdocs`, które mają postać:
+
+```json
+{ "_id" : { "word" : "#", "id" : 5034944 }, "value" : 1 }
+```
+
+Emitujemy klucz będący słowem (`_id.word`). 
+
+Spodziewamy się rekordów postaci:
+
+```json
+{ "_id" : "#", "value" : 542 }
+```
+
+Każdy rekord zawiera ilość dokumentów (tytułów), w których występuje dane słowo. Czyli to co chcieliśmy policzyć.
+
 ####Kod funkcji Map oraz Reduce
 
 ```js
@@ -144,4 +176,6 @@ db.wcdocs.mapReduce(m2, r2, {out: "wc"});
   "ok" : 1,
 }
 ```
+
+###Przegląd wyniku
 
