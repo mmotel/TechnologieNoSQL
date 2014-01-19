@@ -230,15 +230,15 @@ db.wc.find({
 #####Wynik
 
 ```json
-  { "_id" : "php",        "value" : 29498 },
-  { "_id" : "java",       "value" : 24642 },
-  { "_id" : "javascript", "value" : 19711 },
-  { "_id" : "sql",        "value" : 19238 },
-  { "_id" : "c#",         "value" : 18899 },
-  { "_id" : "python",     "value" : 14990 },
-  { "_id" : "html",       "value" : 12790 },
-  { "_id" : "c++",        "value" : 11528 },
-  { "_id" : "c",          "value" : 9096  },
+  { "_id" : "php",        "value" : 29498 }
+  { "_id" : "java",       "value" : 24642 }
+  { "_id" : "javascript", "value" : 19711 }
+  { "_id" : "sql",        "value" : 19238 }
+  { "_id" : "c#",         "value" : 18899 }
+  { "_id" : "python",     "value" : 14990 }
+  { "_id" : "html",       "value" : 12790 }
+  { "_id" : "c++",        "value" : 11528 }
+  { "_id" : "c",          "value" : 9096  }
   { "_id" : "ruby",       "value" : 6097  }
 ```
 
@@ -267,11 +267,11 @@ db.wc.find({
 #####Wynik
 
 ```json 
-  { "_id" : "android",    "value" : 28375 },
-  { "_id" : "windows",    "value" : 25059 },
-  { "_id" : "linux",      "value" : 8502  },
-  { "_id" : "ios",        "value" : 7253  },
-  { "_id" : "ubuntu",     "value" : 4674  },
+  { "_id" : "android",    "value" : 28375 }
+  { "_id" : "windows",    "value" : 25059 }
+  { "_id" : "linux",      "value" : 8502  }
+  { "_id" : "ios",        "value" : 7253  }
+  { "_id" : "ubuntu",     "value" : 4674  }
   { "_id" : "osx",        "value" : 1331  }
 ```
 
