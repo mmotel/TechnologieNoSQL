@@ -4,7 +4,7 @@
 
 * [Dane](#dane)
 * [Import](#import)
-* [MapReduce](#mappeduce)
+* [MapReduce](#mapreduce)
 * [Przegląd wyniku](#przegl%C4%85d-wyniku)
 
 ##Dane
