@@ -15,33 +15,6 @@ Technologie noSQL - `laboratoria`
 
 ***
 
-###*Zadanie 3*
-
-Przygotować funkcje `map` oraz `reduce` w `MongoDB` lub `CouchDB`. Dla danych zapisanych w `Elasticsearch` przygotować `faceted search`.
-
-#####Rozwiązania
-
-* [MongoDB](./zadanie-3-mongo)
-
-###*Zadanie 2*
-
-1. Wyszukać w sieci dane zawierające co najmniej `1 000 000` rekordów/jsonów.
-
-2. Dane zapisać w bazach `MongoDB` i `Elasticsearch`.
-
-3. Wymyśleć i opisać cztery agregacje – po dwie dla każdej z baz.
-
-4. Zaprogramować i wykonać wszystkie aggregacje.
-
-5. Wyniki przedstawić w postaci graficznej (wykresów, itp.).
-
-#####Rozwiązania
-
- * [MongoDB](./zadanie-2-mongo) `-->` [MongoDB-Aggregations](https://github.com/mmotel/mongodb-aggregations)
- * [Elasticsearch](./zadanie-2-es) `-->` [ES-Facets](https://github.com/mmotel/es-facets)
-
-***
-
 ###*Zadanie 1*
 
 Co to jest [Exploratory Data Analysis](http://en.wikipedia.org/wiki/Exploratory_Data_Analysis) (EDA)?
@@ -75,6 +48,35 @@ Do testowania swoich rozwiązań można skorzystać ze `101 JSON–ów` [fb101.j
  * [Zadanie 1c](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1c)
  * [Zadanie 1d](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1d)
  * [Zadanie 1e](https://github.com/mmotel/technologie-nosql/tree/master/zadanie-1e) 
+
+***
+
+###*Zadanie 2*
+
+1. Wyszukać w sieci dane zawierające co najmniej `1 000 000` rekordów/jsonów.
+
+2. Dane zapisać w bazach `MongoDB` i `Elasticsearch`.
+
+3. Wymyśleć i opisać cztery agregacje – po dwie dla każdej z baz.
+
+4. Zaprogramować i wykonać wszystkie aggregacje.
+
+5. Wyniki przedstawić w postaci graficznej (wykresów, itp.).
+
+#####Rozwiązania
+
+ * [MongoDB](./zadanie-2-mongo) `-->` [MongoDB-Aggregations](https://github.com/mmotel/mongodb-aggregations)
+ * [Elasticsearch](./zadanie-2-es) `-->` [ES-Facets](https://github.com/mmotel/es-facets)
+
+***
+
+###*Zadanie 3*
+
+Przygotować funkcje `map` oraz `reduce` w `MongoDB` lub `CouchDB`. Dla danych zapisanych w `Elasticsearch` przygotować `faceted search`.
+
+#####Rozwiązania
+
+* [MongoDB](./zadanie-3-mongo) `--->` [MongoDB-MapReduce](https://github.com/mmotel/mongodb-mapreduce)
 
 ***
 
